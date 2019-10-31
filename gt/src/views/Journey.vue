@@ -4,10 +4,10 @@
       <van-icon name="search" slot="right" />
     </van-nav-bar>
     <div class="box">
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
+      <img src="../assets/c3.jpg" alt />
+      <img src="../assets/c3.jpg" alt />
+      <img src="../assets/c3.jpg" alt />
+      <img src="../assets/c3.jpg" alt />
     </div>
     <img src="../assets/cc.jpg" alt class="cc" />
   </div>
@@ -17,10 +17,10 @@
 import { Toast } from "vant";
 import axios from "axios";
 export default {
-  name: "Beauty",
+  name: "Journey",
   data() {
     return {
-      title: "中国大学",
+      title: "自然景观",
       active: 0,
       value: "",
       checked: false,
@@ -53,8 +53,8 @@ export default {
   height: 100%;
 }
 .box img {
-  width: 45vw;
-  height: 23vh;
+  width: 95vw;
+  height: 25vh;
   margin: 1.4vh;
   float: left;
 }
@@ -64,6 +64,6 @@ export default {
   position: fixed;
   right: 6vw;
   bottom: 3vh;
-  border-radius: 50%;
+  border-radius: 50%
 }
 </style>

@@ -18,9 +18,14 @@ import 'lib-flexible/flexible';
 import Share from 'vue-social-share';
 import 'vue-social-share/dist/client.css';
 import { Swipe, SwipeItem } from 'vant';
+import { DropdownMenu, DropdownItem } from 'vant';
+import { Tab, Tabs } from 'vant';
+import { List } from 'vant';
 
+Vue.use(List);
+Vue.use(Tab).use(Tabs);
+Vue.use(DropdownMenu).use(DropdownItem);
 Vue.use(Swipe).use(SwipeItem);
-
 Vue.use(Share)
 Vue.use(Toast)
 Vue.use(Icon);

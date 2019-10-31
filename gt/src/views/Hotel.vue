@@ -3,28 +3,33 @@
     <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
       <van-icon name="search" slot="right" />
     </van-nav-bar>
-    <div class="box">
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-    </div>
+    <van-tabs v-model="active">
+      <van-tab title="中国酒店">
+        <div class="box">
+          <img src="../assets/c5.jpg" alt />
+          <img src="../assets/c5.jpg" alt />
+        </div>
+      </van-tab>
+      <van-tab title="海外酒店">
+        <div class="box">
+          <img src="../assets/c5.jpg" alt />
+        </div>
+      </van-tab>
+    </van-tabs>
+
     <img src="../assets/cc.jpg" alt class="cc" />
   </div>
 </template>
 
 <script>
-import { Toast } from "vant";
 import axios from "axios";
 export default {
-  name: "Beauty",
+  name: "Hotel",
   data() {
     return {
-      title: "中国大学",
-      active: 0,
+      title: "醉美酒店",
+      active: 2,
       value: "",
-      checked: false,
-      e: ""
     };
   },
   methods: {
@@ -42,7 +47,7 @@ export default {
   mounted() {
     this.$emit("toparent", this.title);
   }
-};
+}
 </script>
 
 
@@ -53,8 +58,8 @@ export default {
   height: 100%;
 }
 .box img {
-  width: 45vw;
-  height: 23vh;
+  width: 95vw;
+  height: 25vh;
   margin: 1.4vh;
   float: left;
 }

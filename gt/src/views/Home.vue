@@ -26,15 +26,15 @@
       </van-swipe>
       <p class="txt">贴心管家</p>
       <div class="item">
-        <p>
+        <p v-tap="{methods:grab}">
           <img src="../assets/i1.jpg" alt />
           <span>抢吧</span>
         </p>
-        <p>
+        <p v-tap="{methods:pay}">
           <img src="../assets/i2.jpg" alt />
           <span>青葱支付</span>
         </p>
-        <p>
+        <p v-tap="{methods:rent}">
           <img src="../assets/i3.jpg" alt />
           <span>直租吧</span>
         </p>
@@ -92,27 +92,27 @@
         </p>
       </div>
        <img src="../assets/9.jpg" alt class="niu" />
-      <p class="txt">贴心管家</p>
+      <p class="txt">备用管家</p>
       <div class="item">
-        <p>
-          <img src="../assets/i1.jpg" alt />
-          <span>抢吧</span>
+        <p v-tap="{methods:dx}">
+          <img src="../assets/i1.jpg"  />
+          <span>醉美大学</span>
         </p>
-        <p>
+        <p v-tap="{methods:lt}">
           <img src="../assets/i2.jpg" alt />
-          <span>青葱支付</span>
+          <span>美哉旅途</span>
         </p>
-        <p>
+        <p v-tap="{methods:arc}">
           <img src="../assets/i3.jpg" alt />
-          <span>直租吧</span>
+          <span>经典建筑</span>
         </p>
-        <p>
+        <p v-tap="{methods:hotel}">
           <img src="../assets/i4.jpg" alt />
-          <span>美食攻略</span>
+          <span>醉美酒店</span>
         </p>
-        <p>
+        <p v-tap="{methods:movie}">
           <img src="../assets/i5.jpg" alt />
-          <span>奶妈</span>
+          <span>电影</span>
         </p>
         <p>
           <img src="../assets/i6.jpg" alt />
@@ -279,7 +279,7 @@
     <div id="contain">
       <router-view @toparent="getval"></router-view>
     </div>
-    <van-tabbar v-model="active" class="foot">
+    <van-tabbar v-model="active" >
       <van-tabbar-item icon="wap-home-o" to="/index">首页</van-tabbar-item>
       <van-tabbar-item icon="comment-o" to="/chat">消息</van-tabbar-item>
       <van-tabbar-item icon="friends-o" to="/book">通讯录</van-tabbar-item>
@@ -301,7 +301,31 @@ export default {
     getval(msg) {
       // console.log(msg)
       this.title = msg;
-    }
+    },
+    grab(){
+      this.$router.push("/grab");
+    },
+     pay(){
+      this.$router.push("/payMent");
+    },
+     rent(){
+      this.$router.push("/rent");
+    },
+    dx(){
+      this.$router.push("/beauty");
+    },
+    lt(){
+      this.$router.push("/journey");
+    },
+    arc(){
+      this.$router.push("/architecture");
+    },
+     hotel(){
+      this.$router.push("/hotel");
+    },
+     movie(){
+      this.$router.push("/movie");
+    },
   }
 };
 </script>

@@ -3,28 +3,38 @@
     <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
       <van-icon name="search" slot="right" />
     </van-nav-bar>
-    <div class="box">
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-    </div>
+    <van-tabs v-model="active">
+      <van-tab title="古典建筑">
+        <div class="box">
+          <img src="../assets/c4.jpg" alt />
+          <img src="../assets/c1.jpg" alt />
+          <img src="../assets/c1.jpg" alt />
+          <img src="../assets/c1.jpg" alt />
+        </div>
+      </van-tab>
+      <van-tab title="现代建筑">
+        <div class="box">
+          <img src="../assets/c1.jpg" alt />
+          <img src="../assets/c1.jpg" alt />
+          <img src="../assets/c1.jpg" alt />
+          <img src="../assets/c1.jpg" alt />
+        </div>
+      </van-tab>
+    </van-tabs>
+
     <img src="../assets/cc.jpg" alt class="cc" />
   </div>
 </template>
 
 <script>
-import { Toast } from "vant";
 import axios from "axios";
 export default {
-  name: "Beauty",
+  name: "Architecture",
   data() {
     return {
-      title: "中国大学",
-      active: 0,
+      title: "经典建筑",
+      active: 2,
       value: "",
-      checked: false,
-      e: ""
     };
   },
   methods: {
@@ -42,7 +52,7 @@ export default {
   mounted() {
     this.$emit("toparent", this.title);
   }
-};
+}
 </script>
 
 

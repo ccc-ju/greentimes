@@ -68,39 +68,6 @@ var router = new Router({
             title: "通讯录"
           },
         },
-            {
-              path: '/addFri',
-              name: 'addFri',
-              component: () => import('@/views/AddFri'),
-              meta: {
-                title: "添加好友"
-              }
-            },
-            {
-              path: '/newFri',
-              name: 'newFri',
-              component: () => import('@/views/NewFri'),
-              meta: {
-                title: "验证消息"
-              }
-            },
-            {
-              path: '/blackList',
-              name: 'blackList',
-              component: () => import('@/views/BlackList'),
-              meta: {
-                title: "黑名单"
-              }
-            },
-            {
-              path: '/friList',
-              name: 'friList',
-              component: () => import('@/views/FriList'),
-              meta: {
-                title: "用户信息"
-              }
-            },
-        
         {
           path: '/mine',
           name: 'mine',
@@ -110,7 +77,117 @@ var router = new Router({
           }
         },
       ]
-    }
+    },
+    {
+      path: '/addFri',
+      name: 'addFri',
+      component: () => import('@/views/AddFri'),
+      meta: {
+        title: "添加好友"
+      }
+    },
+    {
+      path: '/newFri',
+      name: 'newFri',
+      component: () => import('@/views/NewFri'),
+      meta: {
+        title: "验证消息"
+      }
+    },
+    {
+      path: '/blackList',
+      name: 'blackList',
+      component: () => import('@/views/BlackList'),
+      meta: {
+        title: "黑名单"
+      }
+    },
+    {
+      path: '/friList',
+      name: 'friList',
+      component: () => import('@/views/FriList'),
+      meta: {
+        title: "用户信息"
+      }
+    },
+    {
+      path: '/beauty',
+      name: 'beauty',
+      component: () => import('@/views/Beauty'),
+      meta: {
+        title: "中国大学"
+
+      }
+    },
+    {
+      path: '/journey',
+      name: 'journey',
+      component: () => import('@/views/Journey'),
+      meta: {
+        title: "美哉旅途"
+      }
+    },
+    {
+      path: '/architecture',
+      name: 'architecture',
+      component: () => import('@/views/Architecture'),
+      meta: {
+        title: "建筑"
+      }
+    },
+    {
+      path: '/hotel',
+      name: 'hotel',
+      component: () => import('@/views/Hotel'),
+      meta: {
+        title: "酒店"
+
+      }
+    },
+    {
+      path: '/movie',
+      name: 'movie',
+      component: () => import('@/views/Movie'),
+      meta: {
+        title: "电影"
+
+      }
+    },
+    {
+      path: '/grab',
+      name: 'grab',
+      component: () => import('@/views/Grab'),
+      meta: {
+        title: "抢吧"
+      }
+    },
+    {
+      path: '/payMent',
+      name: 'payMent',
+      component: () => import('@/views/PayMent'),
+      meta: {
+        title: "青葱支付"
+
+      }
+    },
+    {
+      path: '/rent',
+      name: 'rent',
+      component: () => import('@/views/Rent'),
+      meta: {
+        title: "直租吧"
+
+      }
+    },
+    {
+      path: '/personal',
+      name: 'personal',
+      component: () => import('@/views/Personal'),
+      meta: {
+        title: "个人中心"
+
+      }
+    },
   ]
 
 

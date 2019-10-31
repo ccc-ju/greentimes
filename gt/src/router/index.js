@@ -74,9 +74,42 @@ var router = new Router({
           component: () => import('@/views/Mine'),
           meta: {
             title: "我的"
-          }
+          },
         },
+        
       ]
+    },
+    {
+      path: '/information',
+      name: 'information',
+      component: () => import('@/views/information'),
+      meta: {
+        title: "个人信息"
+      },
+    },
+    {
+      path: '/perEdit',
+      name: 'perEdit',
+      component: () => import('@/views/PerEdit'),
+      meta: {
+        title: "个性编辑"
+      }
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('@/views/Account'),
+      meta: {
+        title: "账户安全"
+      }
+    },
+    {
+      path: '/service',
+      name: 'service',
+      component: () => import('@/views/Service'),
+      meta: {
+        title: "客服中心"
+      }
     },
     {
       path: '/addFri',

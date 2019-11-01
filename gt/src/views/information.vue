@@ -13,18 +13,18 @@
           <span>青葱号</span>
           <span>{{name}}</span>
         </li>
-        <li>
+        <li v-tap="{methods:nc}">
           <span>昵称</span>
           <span>
             用户{{name}}
             <van-icon class="iconh" name="arrow" />
           </span>
         </li>
-        <li>
+        <li v-tap="{methods:autograph}">
           <span>个性签名</span>
           <van-icon class="iconh" name="arrow" />
         </li>
-        <li>
+        <li v-tap="{methods:qrcode}">
           <span>我的二维码</span>
           <span>
             <van-icon name="qr" />
@@ -33,14 +33,14 @@
         </li>
       </ul>
       <ul>
-        <li>
+        <li v-tap="{methods:identity}">
           <span>身份资料</span>
           <span>
             {{authentication}}
             <van-icon class="iconh" name="arrow" />
           </span>
         </li>
-        <li>
+        <li v-tap="{methods:education}">
           <span>最高学历资料</span>
           <span>
             {{authentication}}
@@ -50,7 +50,7 @@
       </ul>
 
       <ul>
-        <li>
+        <li v-tap="{methods:island}">
           <span>岛主等级</span>
           <span>
             {{grade}}
@@ -86,6 +86,24 @@ export default {
     },
     onCancel() {
       this.show = false;
+    },
+    nc(){
+      this.$router.push('nc')
+    },
+    autograph(){
+       this.$router.push('autograph')
+    },
+    qrcode(){
+       this.$router.push('qrcode')
+    },
+    identity(){
+       this.$router.push('identity')
+    },
+    education(){
+       this.$router.push('education')
+    },
+    island(){
+      this.$router.push('island')
     }
   }
 };
@@ -104,21 +122,21 @@ section {
   flex: 1;
 }
 .headpic {
-  height: 70px;
+  height: 60px;
   margin: 10px 0;
-  line-height: 70px;
+  line-height: 60px;
   border-bottom: solid 1px #bdbaba;
   border-top: solid 1px #bdbaba;
 }
 .headpic p {
   display: inline-block;
-  font-size: 18px;
-  line-height: 70px;
+  font-size: 16px;
+  line-height: 60px;
   margin: 0 16px;
 }
 .headpic img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
   border: 0;
@@ -136,8 +154,8 @@ li {
   background: #fff;
   border-top: solid 1px #bdbaba;
   padding: 0 16px;
-  height: 50px;
-  line-height: 50px;
+  height: 40px;
+  line-height: 40px;
   font-size: 16px;
 }
 li:last-child {

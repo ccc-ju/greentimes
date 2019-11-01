@@ -19,7 +19,7 @@
           </span>
           <van-icon class="iconh" name="arrow" />
         </li>
-        <li>
+        <li v-tap="{methods:freshPay}">
           <span>
             <van-icon class="iconp2" name="gold-coin-o" />青葱支付
           </span>
@@ -37,7 +37,7 @@
           </span>
           <van-icon class="iconh" name="arrow" />
         </li>
-        <li>
+        <li v-tap="{methods:share}">
           <span>
             <van-icon class="iconp5" name="friends-o" />分享给朋友
           </span>
@@ -45,7 +45,7 @@
         </li>
       </ul>
       <ul>
-        <li>
+        <li v-tap="{methods:set}">
           <span>
             <van-icon class="iconp6" name="setting-o" />设置
           </span>
@@ -77,7 +77,7 @@ export default {
     };
   },
   methods: {
-     bg() {
+    bg() {
       this.show = true;
     },
     onCancel() {
@@ -99,7 +99,7 @@ export default {
       this.$router.push("Service");
     },
     share() {
-      this.$router.push("Share");
+      
     },
     set() {
       this.$router.push("Set");
@@ -199,7 +199,7 @@ li:last-child {
 }
 li span {
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -14,7 +14,7 @@
       :style="{ color: '#333', borderColor: 'rgb(82, 79, 79)', padding: '2px 16px' }"
     >或</van-divider>
     <div class="idea">
-      <van-button class="ibtn" color="green" plain>意见反馈</van-button>
+      <van-button class="ibtn" color="green" plain v-tap="{methods:feedback}">意见反馈</van-button>
     </div>
   </div>
 </template>
@@ -25,6 +25,9 @@ export default {
   methods: {
     onClickLeft() {
       this.$router.go(-1);
+    },
+    feedback() {
+      this.$router.push('feedback');
     }
   }
 };

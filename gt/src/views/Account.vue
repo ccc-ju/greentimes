@@ -2,11 +2,11 @@
   <div>
     <van-nav-bar title="账户安全" left-text="返回" left-arrow @click-left="onClickLeft" />
     <ul>
-      <li>
+      <li v-tap="{methods:ph}">
         <span>修改手机号</span>
         <van-icon class="iconh" name="arrow" />
       </li>
-      <li>
+      <li v-tap="{methods:psw}">
         <span>修改密码</span>
         <van-icon class="iconh" name="arrow" />
       </li>
@@ -20,6 +20,12 @@ export default {
   methods: {
     onClickLeft() {
       this.$router.go(-1);
+    },
+    ph() {
+      this.$router.push('changePh');
+    },
+    psw(){
+      this.$router.push('changePsw');
     }
   }
 };

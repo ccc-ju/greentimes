@@ -5,8 +5,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 var router = new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       redirect: '/ydy'
     },
@@ -42,8 +41,7 @@ var router = new Router({
       path: '/index',
       redirect: '/home',
       component: () => import('@/views/Index'),
-      children: [
-        {
+      children: [{
           path: '/home',
           name: 'home',
           component: () => import('@/views/Home'),
@@ -73,9 +71,186 @@ var router = new Router({
           component: () => import('@/views/Mine'),
           meta: {
             title: "我的"
-          }
+          },
         },
+
       ]
+    },
+    {
+      path: '/information',
+      name: 'information',
+      component: () => import('@/views/information'),
+      meta: {
+        title: "个人信息"
+      },
+    },
+    {
+      path: '/nc',
+      name: 'nc',
+      component: () => import('@/views/Nc'),
+      meta: {
+        title: "昵称"
+      },
+    },
+    {
+      path: '/autograph',
+      name: 'autograph',
+      component: () => import('@/views/Autograph'),
+      meta: {
+        title: "个性签名"
+      },
+    },
+    {
+      path: '/qrcode',
+      name: 'qrcode',
+      component: () => import('@/views/QRcode'),
+      meta: {
+        title: "我的二维码"
+      },
+    },
+    {
+      path: '/identity',
+      name: 'identity',
+      component: () => import('@/views/Identity'),
+      meta: {
+        title: "请完善身份资料"
+      },
+    },
+    {
+      path: '/education',
+      name: 'education',
+      component: () => import('@/views/Education'),
+      meta: {
+        title: "请完善最高学历资料"
+      },
+    },
+    {
+      path: '/city',
+      name: 'city',
+      component: () => import('@/views/City'),
+      meta: {
+        title: "请选择城市"
+      },
+    },
+    {
+      path: '/island',
+      name: 'island',
+      component: () => import('@/views/Island'),
+      meta: {
+        title: "岛主星级介绍"
+      },
+    },
+    {
+      path: '/perEdit',
+      name: 'perEdit',
+      component: () => import('@/views/PerEdit'),
+      meta: {
+        title: "个性编辑"
+      }
+    },
+    {
+      path: '/mineEdit',
+      name: 'mineEdit',
+      component: () => import('@/views/MineEdit'),
+      meta: {
+        title: "我的编辑"
+      }
+    },
+    {
+      path: '/edit',
+      name: 'edit',
+      component: () => import('@/views/Edit'),
+      meta: {
+        title: "编辑"
+      }
+    },
+    {
+      path: '/drafts',
+      name: 'drafts',
+      component: () => import('@/views/Drafts'),
+      meta: {
+        title: "草稿箱"
+      }
+    },
+    {
+      path: '/freshPay',
+      name: 'freshPay',
+      component: () => import('@/views/FreshPay'),
+      meta: {
+        title: "青葱支付"
+      }
+    },
+    {
+      path: '/account1',
+      name: 'account1',
+      component: () => import('@/views/Account1'),
+      meta: {
+        title: "账户安全"
+      }
+    },
+    {
+      path: '/changePh',
+      name: 'changePh',
+      component: () => import('@/views/ChangePh'),
+      meta: {
+        title: "修改手机号"
+      }
+    },
+    {
+      path: '/changePsw',
+      name: 'changePsw',
+      component: () => import('@/views/ChangePsw'),
+      meta: {
+        title: "修改密码"
+      }
+    },
+    {
+      path: '/service',
+      name: 'service',
+      component: () => import('@/views/Service'),
+      meta: {
+        title: "客服中心"
+      }
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: () => import('@/views/Feedback'),
+      meta: {
+        title: "客服中心"
+      }
+    },
+    {
+      path: '/set',
+      name: 'set',
+      component: () => import('@/views/Set'),
+      meta: {
+        title: "设置"
+      }
+    },
+    {
+      path: '/notification',
+      name: 'notification',
+      component: () => import('@/views/Notification'),
+      meta: {
+        title: "消息通知"
+      }
+    },
+    {
+      path: '/cache',
+      name: 'cache',
+      component: () => import('@/views/Cache'),
+      meta: {
+        title: "缓存管理"
+      }
+    },
+    {
+      path: '/aboutMe',
+      name: 'aboutMe',
+      component: () => import('@/views/AboutMe'),
+      meta: {
+        title: "关于我们"
+      }
     },
     {
       path: '/addFri',
@@ -183,8 +358,7 @@ var router = new Router({
       path: '/rent',
       redirect: '/shouye',
       component: () => import('@/views/Rent'),
-      children: [
-        {
+      children: [{
           path: '/shouye',
           name: 'shouye',
           component: () => import('@/views/Shouye'),

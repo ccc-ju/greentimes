@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     login() {
-<<<<<<< HEAD
       if (
         this.userName == localStorage.getItem("username") &&
         this.password == localStorage.getItem("password")
@@ -76,24 +75,6 @@ export default {
       } else {
         return this.$toast("手机号或密码输入有误");
       }
-=======
-      api
-        .login({
-          userName: this.username,
-          password: this.password
-        })
-        .then(data => {
-          console.log(data);
-          if (data.status == 200) {
-            this.$router.push("/index");
-            Dialog.confirm({
-              title: "登录",
-              message: "登录成功"
-            });
-          }
-          
-        });
->>>>>>> 359aa22fc22073b9b5635c717d4ae768c103b809
     },
     regist() {
       this.$router.push("/berRegister");

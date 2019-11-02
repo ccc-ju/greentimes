@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <van-nav-bar title="忘记密码" left-arrow></van-nav-bar>
+    <van-nav-bar title="忘记密码" left-arrow  @click-left="onClickLeft" ></van-nav-bar>
     <div class="from">
       <van-cell-group class="name">
         <van-field v-model="value" center clearable label="手机号码" placeholder="请输入手机号码" />
@@ -28,7 +28,10 @@ export default {
   methods: {
     regist() {
       this.$router.push("/BerForget");
-    }
+    },
+    onClickLeft() {
+      this.$router.go(-1);
+    },
   }
 };
 </script>

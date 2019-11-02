@@ -346,13 +346,45 @@ var router = new Router({
       }
     },
     {
-      path: '/rent',
-      name: 'rent',
-      component: () => import('@/views/Rent'),
+      path: '/account',
+      name: 'account',
+      component: () => import('@/views/Account'),
       meta: {
-        title: "直租吧"
+        title: "我的账户"
 
       }
+    },
+
+    {
+      path: '/rent',
+      redirect: '/shouye',
+      component: () => import('@/views/Rent'),
+      children: [
+        {
+          path: '/shouye',
+          name: 'shouye',
+          component: () => import('@/views/Shouye'),
+          meta: {
+            title: "直租吧"
+          }
+        },
+        {
+          path: '/msg',
+          name: 'msg',
+          component: () => import('@/views/Msg'),
+          meta: {
+            title: "消息"
+          }
+        },
+        {
+          path: '/wode',
+          name: 'wode',
+          component: () => import('@/views/Wode'),
+          meta: {
+            title: "我的"
+          }
+        },
+      ]
     },
     {
       path: '/personal',
@@ -363,9 +395,43 @@ var router = new Router({
 
       }
     },
+    {
+      path: '/order',
+      name: 'order',
+      component: () => import('@/views/Order'),
+      meta: {
+        title: "订单"
+
+      }
+    },
+    {
+      path: '/convert',
+      name: 'convert',
+      component: () => import('@/views/Convert'),
+      meta: {
+        title: "兑换"
+
+      }
+    },
+    {
+      path: '/nurse',
+      name: 'nurse',
+      component: () => import('@/views/Nurse'),
+      meta: {
+        title: "奶妈"
+
+      }
+    },
+    {
+      path: '/film',
+      name: 'film',
+      component: () => import('@/views/Film'),
+      meta: {
+        title: "电影"
+
+      }
+    },
   ]
-
-
 })
 
 router.beforeEach((to, from, next) => {

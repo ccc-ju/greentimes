@@ -19,7 +19,7 @@
           </span>
           <van-icon class="iconh" name="arrow" />
         </li>
-        <li v-tap="{methods:freshPay}">
+        <li v-tap="{methods:payMent}">
           <span>
             <van-icon class="iconp2" name="gold-coin-o" />青葱支付
           </span>
@@ -89,11 +89,11 @@ export default {
     perEdit() {
       this.$router.push("PerEdit");
     },
-    freshPay() {
-      this.$router.push("FreshPay");
+    payMent() {
+      this.$router.push("payMent");
     },
     account() {
-      this.$router.push("Account");
+      this.$router.push("Account1");
     },
     service() {
       this.$router.push("Service");

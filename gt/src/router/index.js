@@ -182,9 +182,9 @@ var router = new Router({
       }
     },
     {
-      path: '/account',
-      name: 'account',
-      component: () => import('@/views/Account'),
+      path: '/account1',
+      name: 'account1',
+      component: () => import('@/views/Account1'),
       meta: {
         title: "账户安全"
       }
@@ -250,7 +250,7 @@ var router = new Router({
       name: 'aboutMe',
       component: () => import('@/views/AboutMe'),
       meta: {
-        title: "缓存管理"
+        title: "关于我们"
       }
     },
     {
@@ -359,8 +359,7 @@ var router = new Router({
       path: '/rent',
       redirect: '/shouye',
       component: () => import('@/views/Rent'),
-      children: [
-        {
+      children: [{
           path: '/shouye',
           name: 'shouye',
           component: () => import('@/views/Shouye'),

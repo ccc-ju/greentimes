@@ -1,6 +1,13 @@
 <template>
   <div>
-    <van-nav-bar title="编辑" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar
+      title="编辑"
+      left-text="返回"
+      right-text="发布"
+      left-arrow
+      @click-left="onClickLeft"
+      @click-right="onClickRight"
+    />
     <ul>
       <li></li>
     </ul>
@@ -10,7 +17,7 @@
       <van-field v-model="text2" type="password" label="内容" placeholder="请输入内容" />
     </van-cell-group>
 
-    <van-button class="btn" type="primary">发布</van-button>
+    <van-button class="btn" type="primary" v-tap="{methods:storage}">存入草稿箱</van-button>
   </div>
 </template>
 
@@ -26,17 +33,23 @@ export default {
   methods: {
     onClickLeft() {
       this.$router.go(-1);
+    },
+    onClickRight() {
+      this.$router.push('mineEdit')
+    },
+    storage() {
+      this.$router.push('drafts')
     }
   }
 };
 </script>
 
 <style scoped>
-.btn{
-    width: 205px;
-    font-size: 20px;
-    line-height: 50px;
-    height: 50px;
-    margin: 10px 85px; 
+.btn {
+  width: 285px;
+  font-size: 20px;
+  line-height: 50px;
+  height: 50px;
+  margin: 10px 45px;
 }
 </style>

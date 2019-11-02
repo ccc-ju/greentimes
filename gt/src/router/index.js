@@ -386,6 +386,24 @@ var router = new Router({
       ]
     },
     {
+      path: '/food',
+      name: 'food',
+      component: () => import('@/views/Food'),
+      meta: {
+        title: "美食攻略"
+
+      }
+    },
+    {
+      path: '/milk',
+      name: 'milk',
+      component: () => import('@/views/Milk'),
+      meta: {
+        title: "奶妈"
+
+      }
+    },
+    {
       path: '/personal',
       name: 'personal',
       component: () => import('@/views/Personal'),

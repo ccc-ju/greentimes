@@ -45,3 +45,12 @@ export const POSTHEAD=(url,params,token)=>{
       headers:{authorization:'Bearer ' +token}
     })
 }
+
+export const GETHEAD=(url,params,token)=>{
+  return axios({
+    method:'get',
+    url:`${baseUrl}${url}`,
+    params:params,
+    headers:{authorization:'Bearer ' +token}
+  })
+}

@@ -20,7 +20,9 @@ export const cart=(params,token)=>{
     return API.POSTHEAD('/api/v1/shop_carts',params,token)
 }
 
-
+export const carts=(params,token)=>{
+    return API.GETHEAD('/api/v1/shop_carts',params,token)
+}
 
 
 

@@ -55,13 +55,14 @@ export default {
         })
         .then(data => {
           console.log(data);
-          if(status = 200){
-             Dialog.confirm({
-              title: "登录",
-              message: "登录成功",
+          // if(status = 200){
+          //    Dialog.confirm({
+          //     title: "登录",
+          //     message: "登录成功",
              
-            })
-          }
+          //   })
+          // }
+
         });
         
     },

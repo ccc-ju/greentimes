@@ -56,7 +56,8 @@ export default {
   computed: {
     usertel() {
       if (this.username === "") {
-        return "";
+        Toast("手机号码输入有误");
+        return;
       } else if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(this.username)) {
         return "手机号格式错误";
       } else {
@@ -76,7 +77,7 @@ export default {
 
   methods: {
     regist() {
-      this.$router.push("/berRegister");
+      // this.$router.push("/berRegister");
       api
         .reg({
           userName: this.username,
@@ -93,7 +94,7 @@ export default {
             })
               .then(() => {
                 // on confirm
-                this.$router.go("/berLogin");
+                this.$router.push("/berLogin");
               })
               .catch(() => {
                 // on cancel
@@ -122,8 +123,6 @@ export default {
         Toast("密码输入有误");
         return;
       }
-
-      this.$router.push('/berLogin');
     },
     onClickLeft() {
       this.$router.go(-1);

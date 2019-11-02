@@ -56,7 +56,8 @@ export default {
   computed: {
     usertel() {
       if (this.username === "") {
-        return "";
+        Toast("手机号码输入有误");
+        return;
       } else if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(this.username)) {
         return "手机号格式错误";
       } else {
@@ -76,6 +77,7 @@ export default {
 
   methods: {
     regist() {
+<<<<<<< HEAD
       if (
         this.username === "" ||
         this.usertel === "手机号码格式错误" ||
@@ -95,6 +97,26 @@ export default {
               Dialog.confirm({
                 title: "注册",
                 message: "用户名已注册，点击“确认”去登录"
+=======
+      // this.$router.push("/berRegister");
+      api
+        .reg({
+          userName: this.username,
+          password: this.password,
+          nickName: this.nickName,
+          avatar: ""
+        })
+        .then(data => {
+          console.log(data.data);
+          if (data.data.code === "error") {
+            Dialog.confirm({
+              title: "注册",
+              message: "用户名已注册，请直接登录"
+            })
+              .then(() => {
+                // on confirm
+                this.$router.push("/berLogin");
+>>>>>>> 359aa22fc22073b9b5635c717d4ae768c103b809
               })
                 .then(() => {
                   // on confirm
@@ -121,6 +143,13 @@ export default {
             }
           });
       }
+<<<<<<< HEAD
+=======
+      if (this.password === "" || this.pass === "密码格式错误，最少为6位") {
+        Toast("密码输入有误");
+        return;
+      }
+>>>>>>> 359aa22fc22073b9b5635c717d4ae768c103b809
     },
     onClickLeft() {
       this.$router.go(-1);

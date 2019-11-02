@@ -22,7 +22,13 @@ import { DropdownMenu, DropdownItem } from 'vant';
 import { Tab, Tabs } from 'vant';
 import { List } from 'vant';
 import { Dialog } from 'vant';
+import { Card } from 'vant';
+import { Grid, GridItem } from 'vant';
+import { SubmitBar } from 'vant';
 
+Vue.use(SubmitBar);
+Vue.use(Grid).use(GridItem);
+Vue.use(Card);
 Vue.use(Dialog);
 Vue.use(List);
 Vue.use(Tab).use(Tabs);

@@ -1,7 +1,6 @@
 <template>
   <div>
   
-
     <div id="contain">
       <router-view @toparent="getval"></router-view>
     </div>
@@ -22,8 +21,7 @@ export default {
     return {
       active: 0,
       title: "首页",
-      
-
+    
     };
   },
   methods: {

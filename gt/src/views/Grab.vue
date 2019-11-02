@@ -75,16 +75,16 @@ export default {
       this.$router.push("/personal");
     },
      q1() {
-      this.$router.push("/");
+      this.$router.push("/order");
     },
     q2() {
-      this.$router.push("/");
+      this.$router.push("/convert");
     },
     q3() {
-      this.$router.push("/");
+      this.$router.push("/Nurse");
     },
     q4() {
-      this.$router.push("/");
+      this.$router.push("/Film");
     },
   },
 
@@ -116,6 +116,7 @@ header{
   background: url(../assets/q.jpg) no-repeat;
   background-size: contain;
   justify-content: space-between;
+  color: white;
 }
 
 .box p,
@@ -128,6 +129,7 @@ header{
   line-height: 4vh;
   margin-top: 6vh;
   border-radius: 50%;
+
 }
 .box p img {
   width: 14vw;

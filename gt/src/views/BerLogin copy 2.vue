@@ -13,30 +13,21 @@
           placeholder="请输入用户名"
           @click-right-icon="$toast('question')"
         />
-      </van-cell-group>
-      <van-cell-group>
-        <van-field
-          class="ps"
-          v-model="password"
-          type="password"
-          label="密码"
-          placeholder="请输入密码"
-          required
-        />
+        </van-cell-group >
+          <van-cell-group >
+        <van-field class="ps" v-model="password" type="password" label="密码" placeholder="请输入密码" required />
       </van-cell-group>
 
       <van-button type="primary" v-tap="{methods:login}" class="dl">登录</van-button>
       <p>
-        <a href v-tap="{methods:regist}">立即注册</a>
-        <a href v-tap="{methods:forget}">忘记密码</a>
+        <a href v-tap="{methods:regist}" >立即注册</a><a href v-tap="{methods:forget}">忘记密码</a>
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import * as api from "../api/getProlist.js";
-import { Dialog } from "vant";
+import * as api from '../api/getProlist.js';
 export default {
   name: "BerLogin",
   data() {
@@ -48,22 +39,6 @@ export default {
   methods: {
     login() {
       this.$router.push("/index");
-      api
-        .login({
-          username: this.username,
-          password: this.password
-        })
-        .then(data => {
-          console.log(data);
-          if(status = 200){
-             Dialog.confirm({
-              title: "登录",
-              message: "登录成功",
-             
-            })
-          }
-        });
-        
     },
     regist() {
       this.$router.push("/berRegister");
@@ -98,7 +73,7 @@ export default {
 .dl {
   width: 80vw;
   margin-top: 3vh;
-  background: rgba(255, 255, 255, 0);
+  background:rgba(255,255,255,0);
   border-radius: 5px;
   border: 1px solid white;
 }
@@ -107,18 +82,18 @@ p {
   text-align: center;
   line-height: 28px;
 }
-p a {
+p a{
   display: inline-block;
   height: 20px;
   color: white;
   border-right: 1px solid white;
   padding-right: 5px;
 }
-p a:last-child {
+p a:last-child{
   border-right: 0;
   padding-left: 5px;
 }
-.name {
+.name{
   margin-bottom: 2vh;
 }
 </style>

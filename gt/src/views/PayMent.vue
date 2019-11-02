@@ -1,15 +1,8 @@
 <template>
   <div class="wrap">
-    <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-      <van-icon name="search" slot="right" />
-    </van-nav-bar>
-    <div class="box">
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-      <img src="../assets/c1.jpg" alt />
-    </div>
-    <img src="../assets/cc.jpg" alt class="cc" />
+     <van-nav-bar  left-arrow @click-left="onClickLeft"  class="arr"/>
+   <img src="../assets/acc.jpg" alt="">
+   <span v-tap="{methods:acc}">我的账户</span>
   </div>
 </template>
 
@@ -17,26 +10,19 @@
 import { Toast } from "vant";
 import axios from "axios";
 export default {
-  name: "Beauty",
+  name: "PayMent",
   data() {
     return {
-      title: "中国大学",
-      active: 0,
-      value: "",
-      checked: false,
-      e: ""
+     
     };
   },
   methods: {
-    onSearch() {
-      $router.push("");
-    },
-    onClickLeft() {
+     onClickLeft() {
       this.$router.go(-1);
     },
-    onClickRight() {
-      Toast("");
-    }
+    acc() {
+      this.$router.push("/account");
+    },
   },
 
   mounted() {
@@ -48,22 +34,28 @@ export default {
 
 <style scoped="">
 .wrap {
-  background: #ededed;
   width: 100%;
   height: 100%;
 }
-.box img {
-  width: 45vw;
-  height: 23vh;
-  margin: 1.4vh;
-  float: left;
+.wrap img {
+  width: 100%;
+  height: 100%;
 }
-.cc {
-  width: 14vw;
-  height: 8vh;
-  position: fixed;
-  right: 6vw;
-  bottom: 3vh;
-  border-radius: 50%;
+span{
+  display: block;
+  width: 52vw;
+  height: 6vh;
+  line-height: 6vh;
+  text-align: center;
+  background:rgba(red, 0, 0, .6);
+  position: absolute;
+  bottom: 5vh;
+  left: 24vw;
+  border-radius: 3vh;
+  color: white;
+}
+.arr{
+  position: absolute;
+  top: 1vh;
 }
 </style>

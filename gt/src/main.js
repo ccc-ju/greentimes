@@ -10,7 +10,7 @@ import { Panel } from 'vant';
 import '../static/reset.css'
 import vueTap from 'v-tap';
 import 'vant/lib/index.css';
-// import store from './store'
+import store from './store'
 import axios from 'axios';
 // import '../data/prolist';
 import 'nprogress/nprogress.css';
@@ -21,7 +21,9 @@ import { Swipe, SwipeItem } from 'vant';
 import { DropdownMenu, DropdownItem } from 'vant';
 import { Tab, Tabs } from 'vant';
 import { List } from 'vant';
+import { Dialog } from 'vant';
 
+Vue.use(Dialog);
 Vue.use(List);
 Vue.use(Tab).use(Tabs);
 Vue.use(DropdownMenu).use(DropdownItem);
@@ -42,6 +44,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

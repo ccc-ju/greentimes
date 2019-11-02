@@ -2,7 +2,10 @@
   <div>
     <div class="box">
     <van-nav-bar :title="title" :fixed="true" />
-    <van-contact-card type="edit" name="用户" tel="13000000000" :editable="false" />
+     <p>
+        <img src="../assets/t.jpg" alt />
+        <span>用户</span>
+      </p>
     </div>
   </div>
 </template>
@@ -27,5 +30,16 @@ export default {
 <style scoped="">
 .box{
   margin-top: 45px;
+}
+.box img {
+  width: 14vw;
+  height: 8vh;
+  margin: 1vh 3vh;
+  float: left;
+  border-radius: 50%;
+}
+.box p {
+  line-height: 10vh;
+  height: 10vh;
 }
 </style>

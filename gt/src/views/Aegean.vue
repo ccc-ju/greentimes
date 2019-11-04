@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <h2>爱琴海</h2>
     </div>
 </template>
 

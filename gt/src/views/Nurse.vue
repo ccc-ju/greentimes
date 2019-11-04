@@ -44,6 +44,7 @@ export default {
       value: "",
       value1: 0,
       value2: "a",
+      
       option1: [
         { text: "附近店铺", value: 0 },
         { text: "新款商品", value: 1 },
@@ -60,11 +61,14 @@ export default {
     onSearch() {
       $router.push("");
     },
-    onClickLeft() {
+     onClickLeft() {
       this.$router.go(-1);
     },
     onClickRight() {
       Toast("");
+    },
+    detail(){
+
     }
   },
   mounted() {

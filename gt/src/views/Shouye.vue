@@ -11,7 +11,7 @@
           <van-icon name="search" slot="right" />
         </van-nav-bar>
       </header>
-      <Loading v-if="isLoading" />
+      <!-- <Loading v-if="isLoading" /> -->
     <!-- <Scroller v-else :handleToScroll="handleToScroll" :handleToTouchEnd="handleToTouchEnd"> -->
       <section>
         <div class="cont">
@@ -46,13 +46,14 @@
           <p class="txt">发布房源</p>
         </div>
       </section>
-    </Scroller>
+   
   </div>
 </template>
 
 <script>
 import * as api from "../api/getProlist.js";
 import { Toast } from "vant";
+
 import axios from "axios";
 export default {
   name: "Shouye",

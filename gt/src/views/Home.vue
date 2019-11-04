@@ -327,7 +327,6 @@ export default {
      movie(){
       this.$router.push("/movie");
     },
-<<<<<<< HEAD
     aegean(){
       this.$router.push('/aegean');
     },
@@ -343,8 +342,6 @@ export default {
     colleage(){
       this.$router.push('/colleage');
     },
-=======
->>>>>>> 93bd5debe56c2347142fa0f89073a3eaef50afea
   }
 };
 </script>

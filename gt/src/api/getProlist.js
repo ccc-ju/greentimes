@@ -20,7 +20,9 @@ export const getDetail=(params)=>{
     return API.GET('/api/v1/products/:id',params)
 }
 
-
+export const carts=(params,token)=>{
+    return API.GETHEAD('/api/v1/shop_carts',params,token)
+}
 
 
 

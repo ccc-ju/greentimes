@@ -23,6 +23,9 @@ import { Tab, Tabs } from 'vant';
 import { List } from 'vant';
 import { Dialog } from 'vant';
 
+import Loading from '@/components/Loading';
+Vue.component('Loading',Loading)
+
 Vue.use(Dialog);
 Vue.use(List);
 Vue.use(Tab).use(Tabs);

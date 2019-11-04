@@ -5,8 +5,8 @@
         <van-icon name="search" slot="right" />
       </van-nav-bar>
     </header>
-
-    <div class="cont">
+    <section>
+      <div class="cont">
         <van-swipe :autoplay="3000" indicator-color="white" class="box">
           <van-swipe-item>
             <img src="../assets/z.jpg" alt />
@@ -15,26 +15,29 @@
             <img src="../assets/z.jpg" alt />
           </van-swipe-item>
         </van-swipe>
-      <van-dropdown-menu>
-        <van-dropdown-item v-model="value" :options="option" />
-        <van-dropdown-item v-model="value" :options="option" />
-        <van-dropdown-item title="筛选" ref="item">
-          <van-switch-cell v-model="switch1" title="包邮" />
-          <van-switch-cell v-model="switch2" title="团购" />
-          <van-button block type="info" @click="onConfirm">确认</van-button>
-        </van-dropdown-item>
-      </van-dropdown-menu>
-      <van-card v-for="item in list"
-        :per="item.pages"
-        :page="item.pages" 
-        :name="item.name"
-        :product_category ="item.productCategory"
-         
-      />
-      <p class="txt">发布房源</p>
-      <!-- <router-view></router-view> -->
-    </div>
-   
+        <van-dropdown-menu>
+          <van-dropdown-item v-model="value" :options="option" />
+          <van-dropdown-item v-model="value" :options="option" />
+          <van-dropdown-item title="筛选" ref="item">
+            <van-switch-cell v-model="switch1" title="包邮" />
+            <van-switch-cell v-model="switch2" title="团购" />
+            <van-button block type="info" @click="onConfirm">确认</van-button>
+          </van-dropdown-item>
+        </van-dropdown-menu>
+
+        <van-card
+          v-for="item in list"
+          :thumb="item.coverImg"
+          :price="item.price"
+          :title="item.name"
+          :desc="item.descriptions"
+          origin-price="199.00"
+          @click="detail(item._id)"
+        />
+
+        <p class="txt">发布房源</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -75,6 +78,12 @@ export default {
     },
     onConfirm() {
       this.$refs.item.toggle();
+<<<<<<< HEAD
+    },
+    detail(id) {
+      this.$router.push("/detail/" + id);
+=======
+>>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
     }
   },
 
@@ -90,8 +99,20 @@ export default {
 
 
 <style scoped="">
+<<<<<<< HEAD
+html,
+body {
+  height: 100%;
+}
+header {
+  width: 100%;
+  height: 7vh;
+  position: fixed;
+  z-index: 2;
+=======
 html,body{
   height:100%;
+>>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
 }
 .wrap {
   width: 100%;
@@ -99,6 +120,15 @@ html,body{
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
+section{
+  flex: 1;
+  overflow: hidden;
+}
+.cont {
+  margin-bottom: 9vh;
+  margin-top: 7vh;
+=======
 
 footer {
   margin-top: 9vh;
@@ -106,6 +136,7 @@ footer {
 .cont {
   flex: 1;
   overflow:auto;
+>>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
 }
 van-swipe-item {
   width: 95vw;

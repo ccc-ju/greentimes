@@ -32,3 +32,25 @@ export const GET= (url,params)=>{
 export const POST=(url,params)=>{
     return axios.post(`${baseUrl}${url}`,params).then(data=>data)
 }
+// export const POSTHEAD=(url,params,token)=>{
+//   return axios.post(`${baseUrl}${url}`,params,)
+//   headers:authorization 'Bearer ' +token
+//   .then(data=>data)
+// }
+export const POSTHEAD=(url,params,token)=>{
+    return axios({
+      method:'post',
+      url:`${baseUrl}${url}`,
+      params:params,
+      headers:{authorization:'Bearer ' +token}
+    })
+}
+
+export const GETHEAD=(url,params,token)=>{
+  return axios({
+    method:'get',
+    url:`${baseUrl}${url}`,
+    params:params,
+    headers:{authorization:'Bearer ' +token}
+  })
+}

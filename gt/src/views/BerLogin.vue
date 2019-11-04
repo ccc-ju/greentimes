@@ -5,7 +5,7 @@
     <div class="from">
       <van-cell-group class="name">
         <van-field
-          v-model="userName"
+          v-model="username"
           required
           clearable
           label="用户名"
@@ -41,40 +41,28 @@ export default {
   name: "BerLogin",
   data() {
     return {
-      userName: "",
+      username: "",
       password: ""
     };
   },
   methods: {
     login() {
-      if (
-        this.userName == localStorage.getItem("username") &&
-        this.password == localStorage.getItem("password")
-      ) {
-        api
-          .login({
-            userName: this.userName,
-            password: this.password
-          })
-          .then(data => {
-            console.log(data);
-            if ((status = 200)) {
-              Dialog.confirm({
-                title: "登录",
-                message: "登录成功"
-              }).then(() => {
-                  // on confirm
-                  this.$router.push("/index");
-                })
-                .catch(() => {
-                  // on cancel
-                })
-              ;
-            }
-          });
-      } else {
-        return this.$toast("手机号或密码输入有误");
-      }
+      api
+        .login({
+          userName: this.username,
+          password: this.password
+        })
+        .then(data => {
+          console.log(data);
+          if (data.status == 200) {
+            this.$router.push("/index");
+            Dialog.confirm({
+              title: "登录",
+              message: "登录成功"
+            });
+          }
+          
+        });
     },
     regist() {
       this.$router.push("/berRegister");

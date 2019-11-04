@@ -1,19 +1,23 @@
 <template>
   <div class="wrap">
-    <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-      <van-icon name="search" slot="right" />
-    </van-nav-bar>
+    <header>
+      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+        <van-icon name="search" slot="right" />
+      </van-nav-bar>
+    </header>
+     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
     <div class="box">
-      <img src="../assets/c3.jpg" alt />
-      <img src="../assets/c3.jpg" alt />
-      <img src="../assets/c3.jpg" alt />
-      <img src="../assets/c3.jpg" alt />
+      <van-grid :gutter="10" :column-num="2" square>
+        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+      </van-grid>
     </div>
     <img src="../assets/cc.jpg" alt class="cc" />
+     </van-pull-refresh>
   </div>
 </template>
 
 <script>
+import * as api from "../api/getProlist.js";
 import { Toast } from "vant";
 import axios from "axios";
 export default {
@@ -22,9 +26,9 @@ export default {
     return {
       title: "自然景观",
       active: 0,
+      list: [],
       value: "",
-      checked: false,
-      e: ""
+      isLoading:false,
     };
   },
   methods: {
@@ -36,11 +40,23 @@ export default {
     },
     onClickRight() {
       Toast("");
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功');
+        this.isLoading = false;
+      }, 500);
     }
   },
 
   mounted() {
     this.$emit("toparent", this.title);
+    api
+      .getPro({ per: 20, page: 1, name: name, product_category: "" })
+      .then(data => {
+        // console.log(data.data.products);
+        this.list = data.data.products;
+      });
   }
 };
 </script>
@@ -48,9 +64,19 @@ export default {
 
 <style scoped="">
 .wrap {
-  background: #ededed;
   width: 100%;
   height: 100%;
+}
+header {
+  width: 100%;
+  height: 7vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+.box {
+  flex: 1;
+  margin-top: 7vh;
 }
 .box img {
   width: 95vw;
@@ -64,6 +90,7 @@ export default {
   position: fixed;
   right: 6vw;
   bottom: 3vh;
-  border-radius: 50%
+  border-radius: 50%;
+  z-index: 1;
 }
 </style>

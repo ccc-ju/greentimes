@@ -1,11 +1,11 @@
 <template>
   <div>
     <van-nav-bar title="详情" left-text="返回" left-arrow :fixed="true" @click-left="onClickLeft" />
-    <div class="container">
-      <van-coupon-cell :coupons="coupons" :chosen-coupon="chosenCoupon" @click="showList = true" />
+    <div class="container"> 
+      <img :src="detail.coverImg" />
+
        <van-card
         tag="打折"
-        :thumb="detail.coverImg"
         :price="detail.price"
         :title="detail.name"
         :desc="detail.descriptions"
@@ -38,14 +38,7 @@ import { Toast } from "vant";
 import axios from "axios";
 const coupon = {
   available: 1,
-  condition: "无使用门槛\n最多优惠12元",
-  reason: "",
-  value: 150,
-  name: "优惠券名称",
-  startAt: 1489104000,
-  endAt: 1514592000,
-  valueDesc: "1.5",
-  unitDesc: "元"
+ 
 };
 
 export default {
@@ -75,13 +68,11 @@ export default {
       ).then(data => {
       if(data.data.code == 'success'){
         this.$router.push("/cart");
-      }
-       
+      }     
     });
     },
     buy() {
       this.$router.push("/buy");
-
     },
     onChange(index) {
       this.showList = false;
@@ -107,5 +98,9 @@ export default {
 <style scoped="">
 .container {
   margin-top: 46px;
+}
+img{
+  width: 100%;
+  height: 35vh;
 }
 </style>

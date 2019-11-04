@@ -394,6 +394,22 @@ var router = new Router({
       ]
     },
     {
+      path: '/detail/:_id',
+      name: 'detail',
+      component: () => import('@/views/Detail'),
+      meta: {
+        title: "商品详情"
+      }
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('@/views/Cart'),
+      meta: {
+        title: "购物车"
+      }
+    },
+    {
       path: '/food',
       name: 'food',
       component: () => import('@/views/Food'),

@@ -85,7 +85,7 @@ export default {
     },
     q4() {
       this.$router.push("/Film");
-    },
+    }
   },
 
   mounted() {
@@ -129,7 +129,6 @@ header{
   line-height: 4vh;
   margin-top: 6vh;
   border-radius: 50%;
-
 }
 .box p img {
   width: 14vw;

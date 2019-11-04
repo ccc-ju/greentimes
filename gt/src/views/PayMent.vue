@@ -3,6 +3,16 @@
      <van-nav-bar  left-arrow @click-left="onClickLeft"  class="arr"/>
    <img src="../assets/acc.jpg" alt="">
    <span v-tap="{methods:acc}">我的账户</span>
+    <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+      <van-icon name="search" slot="right" />
+    </van-nav-bar>
+    <div class="box">
+      <img src="../assets/c1.jpg" alt />
+      <img src="../assets/c1.jpg" alt />
+      <img src="../assets/c1.jpg" alt />
+      <img src="../assets/c1.jpg" alt />
+    </div>
+    <img src="../assets/cc.jpg" alt class="cc" />
   </div>
 </template>
 

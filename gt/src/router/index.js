@@ -68,39 +68,6 @@ var router = new Router({
             title: "通讯录"
           },
         },
-            {
-              path: '/addFri',
-              name: 'addFri',
-              component: () => import('@/views/AddFri'),
-              meta: {
-                title: "添加好友"
-              }
-            },
-            {
-              path: '/newFri',
-              name: 'newFri',
-              component: () => import('@/views/NewFri'),
-              meta: {
-                title: "验证消息"
-              }
-            },
-            {
-              path: '/blackList',
-              name: 'blackList',
-              component: () => import('@/views/BlackList'),
-              meta: {
-                title: "黑名单"
-              }
-            },
-            {
-              path: '/friList',
-              name: 'friList',
-              component: () => import('@/views/FriList'),
-              meta: {
-                title: "用户信息"
-              }
-            },
-        
         {
           path: '/mine',
           name: 'mine',

@@ -58,7 +58,7 @@
           <img src="../assets/i8.jpg" alt />
           <span>轻松点</span>
         </p>
-        <p>
+        <p v-tap="{methods:cation}">
           <img src="../assets/i9.jpg" alt />
           <span>搭配</span>
         </p>
@@ -70,7 +70,7 @@
       <img src="../assets/7.jpg" alt class="niu" />
       <p class="txt">定制管家</p>
       <div class="item">
-        <p>
+        <p v-tap="{methods:aegean}">
           <img src="../assets/i11.jpg" alt />
           <span>爱琴海</span>
         </p>
@@ -78,15 +78,15 @@
           <img src="../assets/i12.jpg" alt />
           <span>磨牙</span>
         </p>
-        <p>
+        <p v-tap="{methods:little}">
           <img src="../assets/i13.jpg" alt />
           <span>一点通</span>
         </p>
-        <p>
+        <p v-tap="{methods:struggle}">
           <img src="../assets/i14.jpg" alt />
           <span>奋青</span>
         </p>
-        <p>
+        <p v-tap="{methods:colleage}">
           <img src="../assets/i15.jpg" alt />
           <span>馅儿饼</span>
         </p>
@@ -331,7 +331,22 @@ export default {
     },
     movie() {
       this.$router.push("/movie");
-    }
+    },
+    aegean(){
+      this.$router.push('/aegean');
+    },
+    cation(){
+      this.$router.push('/cation');
+    },
+    little(){
+      this.$router.push('/little');
+    },
+    struggle(){
+      this.$router.push('/struggle');
+    },
+    colleage(){
+      this.$router.push('/colleage');
+    },
   }
 };
 </script>

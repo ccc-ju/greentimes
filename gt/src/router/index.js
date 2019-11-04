@@ -78,6 +78,14 @@ var router = new Router({
       ]
     },
     {
+      path: '/aegean',
+      name: 'aegean',
+      component: () => import('@/views/Aegean'),
+      meta: {
+        title: "爱琴海"
+      },
+    },
+    {
       path: '/information',
       name: 'information',
       component: () => import('@/views/information'),
@@ -401,6 +409,39 @@ var router = new Router({
       meta: {
         title: "奶妈"
 
+      }
+    },
+    {
+      path: '/cation',
+      name: 'cation',
+      component: () => import('@/views/Cation'),
+      meta: {
+        title: "搭配"
+
+      }
+    },
+    {
+      path: '/little',
+      name: 'little',
+      component: () => import('@/views/Little'),
+      meta: {
+        title: "一点通"
+      }
+    },
+    {
+      path: '/struggle',
+      name: 'struggle',
+      component: () => import('@/views/Struggle'),
+      meta: {
+        title: "奋青"
+      }
+    },
+    {
+      path: '/colleage',
+      name: 'colleage',
+      component: () => import('@/views/Colleage'),
+      meta: {
+        title: "馅儿饼"
       }
     },
     {

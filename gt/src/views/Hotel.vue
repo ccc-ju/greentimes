@@ -10,18 +10,22 @@
         <van-tab title="中国酒店">
            <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <div class="box">
-            <van-grid :gutter="8" :column-num="1">
-              <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-            </van-grid>
+            <van-grid :column-num="num">
+                <van-grid-item  v-for="item in list" :text="item.name">
+                  <van-image :src="item.coverImg" />
+                </van-grid-item>
+              </van-grid>
           </div>
            </van-pull-refresh>
         </van-tab>
         <van-tab title="海外酒店">
            <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <div class="box">
-            <van-grid :gutter="10" :column-num="1">
-              <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-            </van-grid>
+            <van-grid :column-num="num">
+                <van-grid-item  v-for="item in list" :text="item.name">
+                  <van-image :src="item.coverImg" />
+                </van-grid-item>
+              </van-grid>
           </div>
            </van-pull-refresh>
         </van-tab>
@@ -43,6 +47,7 @@ export default {
       value: "",
       list: [],
       isLoading:false,
+      num:1
     };
   },
   methods: {
@@ -81,10 +86,8 @@ export default {
   width: 100%;
   height: 100%;
 }
-.box img {
-  width: 95vw;
+.van-image{
   height: 25vh;
-  margin: 1.4vh;
   float: left;
 }
 header {

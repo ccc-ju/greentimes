@@ -9,20 +9,20 @@
       <van-tabs v-model="active">
         <van-tab title="古典建筑">
           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-            <div class="box">
-              <van-grid :gutter="15" :column-num="2" square>
-                <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+             <van-grid :column-num="num">
+                <van-grid-item  v-for="item in list" :text="item.name">
+                  <van-image :src="item.coverImg" />
+                </van-grid-item>
               </van-grid>
-            </div>
           </van-pull-refresh>
         </van-tab>
         <van-tab title="现代建筑">
            <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-          <div class="box">
-            <van-grid :gutter="10" :column-num="2" square>
-              <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-            </van-grid>
-          </div>
+          <van-grid :column-num="num">
+                <van-grid-item  v-for="item in list" :text="item.name">
+                  <van-image :src="item.coverImg" />
+                </van-grid-item>
+              </van-grid>
            </van-pull-refresh>
         </van-tab>
       </van-tabs>
@@ -42,7 +42,8 @@ export default {
       active: 2,
       value: "",
       list: [],
-      isLoading: false
+      isLoading: false,
+      num:2
     };
   },
   methods: {
@@ -81,10 +82,9 @@ export default {
   width: 100%;
   height: 100%;
 }
-.box img {
-  width: 45vw;
-  height: 23vh;
-  margin: 1.4vh;
+.van-image{
+  width: 35vw;
+  height: 20vh;
   float: left;
 }
 header {

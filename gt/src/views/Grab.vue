@@ -99,12 +99,16 @@ export default {
 html,body{
   height:100%;
 }
-header{
+header {
   width: 100%;
-  height: 6vh;
-  position: relative;
+  height: 7vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
-
+section{
+  margin-top: 7vh;
+}
 .wrap {
   width: 100%;
   height: 100%;
@@ -127,7 +131,7 @@ header{
   align-items: center;
   flex-direction: column;
   line-height: 4vh;
-  margin-top: 6vh;
+  margin-top: 7vh;
   border-radius: 50%;
 
 }
@@ -153,6 +157,5 @@ header{
   height: 14vh;
   border-radius: 50%;
   margin-top: 3vh;
-  z-index: 1;
 }
 </style>

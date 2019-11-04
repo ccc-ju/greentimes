@@ -410,6 +410,22 @@ var router = new Router({
       }
     },
     {
+      path: '/addressList',
+      name: 'addressList',
+      component: () => import('@/views/AddressList'),
+      meta: {
+        title: "收货地址"
+      }
+    },
+    {
+      path: '/addressEdit',
+      name: 'addressEdit',
+      component: () => import('@/views/AddressEdit'),
+      meta: {
+        title: "地址编辑"
+      }
+    },
+    {
       path: '/food',
       name: 'food',
       component: () => import('@/views/Food'),

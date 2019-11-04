@@ -52,9 +52,7 @@ export default {
       title: "直租吧",
       active: 0,
       value: 0,
-      list: [],
-      name: "",
-      per: 10,
+      list:[],
       switch1: false,
       switch2: false,
       option: [
@@ -65,7 +63,7 @@ export default {
     };
   },
   methods: {
-    getval(msg) {
+     getval(msg) {
       // console.log(msg)
       this.title = msg;
     },
@@ -73,33 +71,35 @@ export default {
       $router.push("");
     },
     onClickLeft() {
-      this.$router.push("/index");
+      this.$router.push('/index');
     },
     onClickRight() {
       Toast("");
     },
     onConfirm() {
       this.$refs.item.toggle();
+<<<<<<< HEAD
     },
     detail(id) {
       this.$router.push("/detail/" + id);
+=======
+>>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
     }
   },
 
   mounted() {
     this.$emit("toparent", this.title);
-    api
-      .getPro({ per: 10, page: 1, name: name, product_category: "" })
-      .then(data => {
-        // console.log(data.data.products);
-        this.list = data.data.products;
-      });
+    api.getPro({per:10,page:1,name:name,product_category:''}).then((data)=>{
+      console.log(data.data)
+      this.list = data.data;
+    })
   }
 };
 </script>
 
 
 <style scoped="">
+<<<<<<< HEAD
 html,
 body {
   height: 100%;
@@ -109,6 +109,10 @@ header {
   height: 7vh;
   position: fixed;
   z-index: 2;
+=======
+html,body{
+  height:100%;
+>>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
 }
 .wrap {
   width: 100%;
@@ -116,6 +120,7 @@ header {
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
 section{
   flex: 1;
   overflow: hidden;
@@ -123,6 +128,15 @@ section{
 .cont {
   margin-bottom: 9vh;
   margin-top: 7vh;
+=======
+
+footer {
+  margin-top: 9vh;
+}
+.cont {
+  flex: 1;
+  overflow:auto;
+>>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
 }
 van-swipe-item {
   width: 95vw;
@@ -134,8 +148,10 @@ van-swipe-item {
   margin: 1.3vh;
   float: left;
 }
-
-.txt {
+van-tabbar {
+  margin-top: 9vh;
+}
+.txt{
   width: 22vw;
   height: 5vh;
   background: #1ad473;
@@ -143,7 +159,7 @@ van-swipe-item {
   color: white;
   text-align: center;
   line-height: 5vh;
-  position: fixed;
+  position: absolute;
   right: 5vw;
   bottom: 10vh;
 }

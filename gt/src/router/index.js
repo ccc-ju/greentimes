@@ -51,6 +51,7 @@ var router = new Router({
             title: "首页"
           }
         },
+
         {
           path: '/chat',
           name: 'chat',
@@ -192,7 +193,6 @@ var router = new Router({
             title: "直租吧"
           }
         },
-
         {
           path: '/msg',
           name: 'msg',
@@ -212,22 +212,23 @@ var router = new Router({
       ]
     },
     {
-      path: '/detail/:_id',
-      name: 'detail',
-      component: () => import('@/views/Detail'),
+      path: '/food',
+      name: 'food',
+      component: () => import('@/views/Food'),
       meta: {
-        title: "商品详情"
+        title: "美食攻略"
+
       }
     },
     {
-      path: '/cart',
-      name: 'cart',
-      component: () => import('@/views/Cart'),
+      path: '/milk',
+      name: 'milk',
+      component: () => import('@/views/Milk'),
       meta: {
-        title: "购物车"
+        title: "奶妈"
+
       }
     },
-
     {
       path: '/personal',
       name: 'personal',

@@ -38,11 +38,11 @@
           <img src="../assets/i3.jpg" alt />
           <span>直租吧</span>
         </p>
-        <p>
+        <p v-tap="{methods:food}">
           <img src="../assets/i4.jpg" alt />
           <span>美食攻略</span>
         </p>
-        <p>
+        <p v-tap="{methods:milk}">
           <img src="../assets/i5.jpg" alt />
           <span>奶妈</span>
         </p>
@@ -91,11 +91,11 @@
           <span>馅儿饼</span>
         </p>
       </div>
-       <img src="../assets/9.jpg" alt class="niu" />
+      <img src="../assets/9.jpg" alt class="niu" />
       <p class="txt">备用管家</p>
       <div class="item">
         <p v-tap="{methods:dx}">
-          <img src="../assets/i1.jpg"  />
+          <img src="../assets/i1.jpg" />
           <span>醉美大学</span>
         </p>
         <p v-tap="{methods:lt}">
@@ -254,7 +254,7 @@
           <img src="../assets/i10.jpg" alt />
           <span>品牌攻略</span>
         </p>
-         <p>
+        <p>
           <img src="../assets/i11.jpg" alt />
           <span>爱琴海</span>
         </p>
@@ -279,7 +279,7 @@
     <div id="contain">
       <router-view @toparent="getval"></router-view>
     </div>
-    <van-tabbar v-model="active" >
+    <van-tabbar v-model="active">
       <van-tabbar-item icon="wap-home-o" to="/index">首页</van-tabbar-item>
       <van-tabbar-item icon="comment-o" to="/chat">消息</van-tabbar-item>
       <van-tabbar-item icon="friends-o" to="/book">通讯录</van-tabbar-item>
@@ -302,30 +302,36 @@ export default {
       // console.log(msg)
       this.title = msg;
     },
-    grab(){
+    grab() {
       this.$router.push("/grab");
     },
-     pay(){
+    pay() {
       this.$router.push("/payMent");
     },
-     rent(){
+    rent() {
       this.$router.push("/rent");
     },
-    dx(){
+    food() {
+      this.$router.push("/food");
+    },
+    milk() {
+      this.$router.push("/milk");
+    },
+    dx() {
       this.$router.push("/beauty");
     },
-    lt(){
+    lt() {
       this.$router.push("/journey");
     },
-    arc(){
+    arc() {
       this.$router.push("/architecture");
     },
-     hotel(){
+    hotel() {
       this.$router.push("/hotel");
     },
-     movie(){
+    movie() {
       this.$router.push("/movie");
-    },
+    }
   }
 };
 </script>

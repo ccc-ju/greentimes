@@ -1,32 +1,34 @@
 <template>
   <div class="wrap">
+    <header>
     <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
       <van-icon name="search" slot="right" />
     </van-nav-bar>
-    <van-tabs v-model="active">
+</header>
+<section>
+  <van-tabs v-model="active">
       <van-tab title="古典建筑">
         <div class="box">
-          <img src="../assets/c4.jpg" alt />
-          <img src="../assets/c1.jpg" alt />
-          <img src="../assets/c1.jpg" alt />
-          <img src="../assets/c1.jpg" alt />
+          <van-grid :gutter="15" :column-num="2" square>
+        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+      </van-grid>
         </div>
       </van-tab>
       <van-tab title="现代建筑">
         <div class="box">
-          <img src="../assets/c1.jpg" alt />
-          <img src="../assets/c1.jpg" alt />
-          <img src="../assets/c1.jpg" alt />
-          <img src="../assets/c1.jpg" alt />
+         <van-grid :gutter="10" :column-num="2" square>
+        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+      </van-grid>
         </div>
       </van-tab>
     </van-tabs>
-
+    </section>
     <img src="../assets/cc.jpg" alt class="cc" />
   </div>
 </template>
 
 <script>
+import * as api from "../api/getProlist.js";
 import axios from "axios";
 export default {
   name: "Architecture",
@@ -35,6 +37,7 @@ export default {
       title: "经典建筑",
       active: 2,
       value: "",
+      list:[],
     };
   },
   methods: {
@@ -51,6 +54,12 @@ export default {
 
   mounted() {
     this.$emit("toparent", this.title);
+     api
+      .getPro({ per: 20, page: 1, name: name, product_category: "" })
+      .then(data => {
+        // console.log(data.data.products);
+        this.list = data.data.products;
+      });
   }
 }
 </script>
@@ -58,7 +67,6 @@ export default {
 
 <style scoped="">
 .wrap {
-  background: #ededed;
   width: 100%;
   height: 100%;
 }
@@ -67,6 +75,18 @@ export default {
   height: 23vh;
   margin: 1.4vh;
   float: left;
+}
+header {
+  width: 100%;
+  height: 7vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+section {
+  flex: 1;
+  margin-bottom: 9vh;
+  margin-top: 7vh;
 }
 .cc {
   width: 14vw;

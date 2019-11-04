@@ -14,8 +14,8 @@
     <van-submit-bar :price="3050" button-text="提交订单" @submit="onSubmit">
       <van-checkbox v-model="checked">全选</van-checkbox>
       <span slot="tip">
-        你的收货地址不支持同城送,
-        <span>修改地址</span>
+        请选择收货地址
+        <span v-tap="{methods:modify}">修改地址</span>
       </span>
     </van-submit-bar>
     <van-popup v-model="showList" position="bottom">
@@ -72,6 +72,9 @@ export default {
     },
     onExchange(code) {
       this.coupons.push(coupon);
+    },
+    modify(){
+      this.$router.push("/AddressEdit")
     }
   },
   mounted() {

@@ -5,14 +5,16 @@
         <van-icon name="search" slot="right" />
       </van-nav-bar>
     </header>
-     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-    <div class="box">
-      <van-grid :gutter="10" :column-num="2" square>
-        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-      </van-grid>
-    </div>
-    <img src="../assets/cc.jpg" alt class="cc" />
-     </van-pull-refresh>
+    <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+      <div class="box">
+        <van-grid :column-num="num">
+          <van-grid-item v-for="item in list" :text="item.name">
+            <van-image :src="item.coverImg" />
+          </van-grid-item>
+        </van-grid>
+      </div>
+      <img src="../assets/cc.jpg" alt class="cc" />
+    </van-pull-refresh>
   </div>
 </template>
 
@@ -28,7 +30,8 @@ export default {
       active: 0,
       list: [],
       value: "",
-      isLoading:false,
+      isLoading: false,
+      num: 2
     };
   },
   methods: {
@@ -43,7 +46,7 @@ export default {
     },
     onRefresh() {
       setTimeout(() => {
-        this.$toast('刷新成功');
+        this.$toast("刷新成功");
         this.isLoading = false;
       }, 500);
     }
@@ -73,6 +76,11 @@ header {
   position: fixed;
   top: 0;
   z-index: 2;
+}
+.van-image {
+  width: 35vw;
+  height: 20vh;
+  float: left;
 }
 .box {
   flex: 1;

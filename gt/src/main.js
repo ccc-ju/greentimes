@@ -22,11 +22,15 @@ import { DropdownMenu, DropdownItem } from 'vant';
 import { Tab, Tabs } from 'vant';
 import { List } from 'vant';
 import { Dialog } from 'vant';
-
+import { Sku } from 'vant';
 import Loading from '@/components/Loading';
-Vue.component('Loading',Loading)
+import { PullRefresh } from 'vant';
 
+Vue.use(PullRefresh);
+
+Vue.component('Loading',Loading)
 Vue.use(Dialog);
+Vue.use(Sku);
 Vue.use(List);
 Vue.use(Tab).use(Tabs);
 Vue.use(DropdownMenu).use(DropdownItem);

@@ -46,7 +46,8 @@ export default {
       } else {
         this.searchResult = [];
       }
-    }
+    },
+    areaList:''
   }
 }
 </script>

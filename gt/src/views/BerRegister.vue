@@ -56,8 +56,7 @@ export default {
   computed: {
     usertel() {
       if (this.username === "") {
-        Toast("手机号码输入有误");
-        return;
+        return "";
       } else if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(this.username)) {
         return "手机号格式错误";
       } else {

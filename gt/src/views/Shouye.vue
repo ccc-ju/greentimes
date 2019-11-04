@@ -7,14 +7,14 @@
     </header>
 
     <div class="cont">
-      <van-swipe :autoplay="3000" indicator-color="white" class="box">
-        <van-swipe-item>
-          <img src="../assets/z.jpg" alt />
-        </van-swipe-item>
-        <van-swipe-item>
-          <img src="../assets/z.jpg" alt />
-        </van-swipe-item>
-      </van-swipe>
+        <van-swipe :autoplay="3000" indicator-color="white" class="box">
+          <van-swipe-item>
+            <img src="../assets/z.jpg" alt />
+          </van-swipe-item>
+          <van-swipe-item>
+            <img src="../assets/z.jpg" alt />
+          </van-swipe-item>
+        </van-swipe>
       <van-dropdown-menu>
         <van-dropdown-item v-model="value" :options="option" />
         <van-dropdown-item v-model="value" :options="option" />
@@ -24,19 +24,17 @@
           <van-button block type="info" @click="onConfirm">确认</van-button>
         </van-dropdown-item>
       </van-dropdown-menu>
-
-      <van-card
-        v-for="item in list"
-        :thumb="item.coverImg"
-        :price="item.price"
-        :title="item.name"
-        :desc="item.descriptions"
-        origin-price="199.00"
-        @click="detail(item._id)"
+      <van-card v-for="item in list"
+        :per="item.pages"
+        :page="item.pages" 
+        :name="item.name"
+        :product_category ="item.productCategory"
+         
       />
-      
       <p class="txt">发布房源</p>
+      <!-- <router-view></router-view> -->
     </div>
+   
   </div>
 </template>
 
@@ -51,9 +49,7 @@ export default {
       title: "直租吧",
       active: 0,
       value: 0,
-      list: [],
-      name: "",
-      per: 10,
+      list:[],
       switch1: false,
       switch2: false,
       option: [
@@ -64,7 +60,7 @@ export default {
     };
   },
   methods: {
-    getval(msg) {
+     getval(msg) {
       // console.log(msg)
       this.title = msg;
     },
@@ -72,42 +68,30 @@ export default {
       $router.push("");
     },
     onClickLeft() {
-      this.$router.push("/index");
+      this.$router.push('/index');
     },
     onClickRight() {
       Toast("");
     },
     onConfirm() {
       this.$refs.item.toggle();
-    },
-     detail(id) {
-      this.$router.push("/detail/"+id);
-    },
+    }
   },
- 
+
   mounted() {
     this.$emit("toparent", this.title);
-    api
-      .getPro({ per: 10, page: 1, name: name, product_category: "" })
-      .then(data => {
-        // console.log(data.data.products);
-        this.list = data.data.products;
-      });
+    api.getPro({per:10,page:1,name:name,product_category:''}).then((data)=>{
+      console.log(data.data)
+      this.list = data.data;
+    })
   }
 };
 </script>
 
 
 <style scoped="">
-html,
-body {
-  height: 100%;
-}
-header{
-  width: 100%;
-  height: 7vh;
-  position: fixed;
-  z-index: 2;
+html,body{
+  height:100%;
 }
 .wrap {
   width: 100%;
@@ -115,10 +99,13 @@ header{
   display: flex;
   flex-direction: column;
 }
+
+footer {
+  margin-top: 9vh;
+}
 .cont {
   flex: 1;
-  margin-bottom: 9vh;
-  margin-top:7vh; 
+  overflow:auto;
 }
 van-swipe-item {
   width: 95vw;
@@ -130,8 +117,10 @@ van-swipe-item {
   margin: 1.3vh;
   float: left;
 }
-
-.txt {
+van-tabbar {
+  margin-top: 9vh;
+}
+.txt{
   width: 22vw;
   height: 5vh;
   background: #1ad473;
@@ -139,7 +128,7 @@ van-swipe-item {
   color: white;
   text-align: center;
   line-height: 5vh;
-  position: fixed;
+  position: absolute;
   right: 5vw;
   bottom: 10vh;
 }

@@ -1,17 +1,24 @@
 <template>
   <div class="wrap">
-    <header>
-      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-        <van-icon name="search" slot="right" />
-      </van-nav-bar>
-    </header>
-    <div class="box">
-      <van-grid :gutter="10" :column-num="2" square>
-        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-      </van-grid>
+      <header>
+        <van-nav-bar
+          :title="title"
+          left-arrow
+          @click-left="onClickLeft"
+          @click-right="onClickRight"
+        >
+          <van-icon name="search" slot="right" />
+        </van-nav-bar>
+      </header>
+      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+      <div class="box">
+        <van-grid :gutter="10" :column-num="2" square>
+          <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+        </van-grid>
+      </div>
+      <img src="../assets/cc.jpg" alt class="cc" v-tap="{methods:edit}"/>
+      </van-pull-refresh>
     </div>
-    <img src="../assets/cc.jpg" alt class="cc" />
-  </div>
 </template>
 
 <script>
@@ -25,7 +32,8 @@ export default {
       title: "中国大学",
       active: 0,
       list: [],
-      value: ""
+      value: "",
+      isLoading: false
     };
   },
   methods: {
@@ -37,6 +45,15 @@ export default {
     },
     onClickRight() {
       Toast("");
+    },
+     edit() {
+      this.$router.push("/coledit");
+    },
+     onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功');
+        this.isLoading = false;
+      }, 500);
     }
   },
 
@@ -50,9 +67,8 @@ export default {
       });
   }
 };
+
 </script>
-
-
 <style scoped="">
 .wrap {
   width: 100%;
@@ -69,11 +85,10 @@ header {
   height: 7vh;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 1;
 }
 .box {
   flex: 1;
-  margin-bottom: 9vh;
   margin-top: 7vh;
 }
 .cc {
@@ -83,5 +98,6 @@ header {
   right: 6vw;
   bottom: 3vh;
   border-radius: 50%;
+  z-index: 1;
 }
 </style>

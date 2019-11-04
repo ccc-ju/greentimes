@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap" ref="wrap">
+  <div class="wrap">
     <header>
       <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" />
     </header>
@@ -17,6 +17,7 @@
       >
         <div slot="action" @click="onSearch">搜索</div>
       </van-search>
+       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
       <van-card
         v-for="item in list"
         :thumb="item.coverImg"
@@ -26,13 +27,13 @@
         origin-price="199.00"
         @click="detail(item._id)"
       />
+       </van-pull-refresh>
     </section>
   </div>
 </template>
 
 <script>
 import * as api from "../api/getProlist.js";
-import BSscroll from 'better-scroll';
 import axios from "axios";
 export default {
   name: "Nurse",
@@ -41,10 +42,10 @@ export default {
       title: "奶妈",
       active: 1,
       list: [],
-      value: "",
       value1: 0,
       value2: "a",
-      
+      value:'',
+      isLoading: false,
       option1: [
         { text: "附近店铺", value: 0 },
         { text: "新款商品", value: 1 },
@@ -61,16 +62,23 @@ export default {
     onSearch() {
       $router.push("");
     },
-     onClickLeft() {
+    onClickLeft() {
       this.$router.go(-1);
     },
     onClickRight() {
       Toast("");
     },
-    detail(){
-
+     detail(id) {
+      this.$router.push("/detail/" + id);
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功');
+        this.isLoading = false;
+      }, 500);
     }
   },
+
   mounted() {
     this.$emit("toparent", this.title);
     api
@@ -78,22 +86,16 @@ export default {
       .then(data => {
         // console.log(data.data.products);
         this.list = data.data.products;
-         this.$nextTick(()=>{
-            new BSscroll(this.$refs.wrap,{});
-         })
-       
       });
   }
 };
 </script>
-
 
 <style scoped="">
 .wrap {
   width: 100%;
   height: 100%;
 }
-
 header {
   width: 100%;
   height: 7vh;
@@ -101,15 +103,15 @@ header {
   top: 0;
   z-index: 2;
 }
+section {
+  flex: 1;
+  margin-bottom: 9vh;
+  margin-top: 7vh;
+}
 .box img {
   width: 95vw;
   height: 25vh;
   margin: 1.4vh;
   float: left;
-}
-section {
-  flex: 1;
-  margin-bottom: 9vh;
-  margin-top:7vh; 
 }
 </style>

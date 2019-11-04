@@ -1,27 +1,31 @@
 <template>
   <div class="wrap">
     <header>
-    <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-      <van-icon name="search" slot="right" />
-    </van-nav-bar>
-</header>
-<section>
-  <van-tabs v-model="active">
-      <van-tab title="古典建筑">
-        <div class="box">
-          <van-grid :gutter="15" :column-num="2" square>
-        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-      </van-grid>
-        </div>
-      </van-tab>
-      <van-tab title="现代建筑">
-        <div class="box">
-         <van-grid :gutter="10" :column-num="2" square>
-        <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
-      </van-grid>
-        </div>
-      </van-tab>
-    </van-tabs>
+      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+        <van-icon name="search" slot="right" />
+      </van-nav-bar>
+    </header>
+    <section>
+      <van-tabs v-model="active">
+        <van-tab title="古典建筑">
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <div class="box">
+              <van-grid :gutter="15" :column-num="2" square>
+                <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+              </van-grid>
+            </div>
+          </van-pull-refresh>
+        </van-tab>
+        <van-tab title="现代建筑">
+           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+          <div class="box">
+            <van-grid :gutter="10" :column-num="2" square>
+              <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
+            </van-grid>
+          </div>
+           </van-pull-refresh>
+        </van-tab>
+      </van-tabs>
     </section>
     <img src="../assets/cc.jpg" alt class="cc" />
   </div>
@@ -37,7 +41,8 @@ export default {
       title: "经典建筑",
       active: 2,
       value: "",
-      list:[],
+      list: [],
+      isLoading: false
     };
   },
   methods: {
@@ -49,19 +54,25 @@ export default {
     },
     onClickRight() {
       Toast("");
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast("刷新成功");
+        this.isLoading = false;
+      }, 500);
     }
   },
 
   mounted() {
     this.$emit("toparent", this.title);
-     api
+    api
       .getPro({ per: 20, page: 1, name: name, product_category: "" })
       .then(data => {
         // console.log(data.data.products);
         this.list = data.data.products;
       });
   }
-}
+};
 </script>
 
 
@@ -85,7 +96,6 @@ header {
 }
 section {
   flex: 1;
-  margin-bottom: 9vh;
   margin-top: 7vh;
 }
 .cc {

@@ -17,6 +17,7 @@
       >
         <div slot="action" @click="onSearch">搜索</div>
       </van-search>
+       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
       <van-card
         v-for="item in list"
         :thumb="item.coverImg"
@@ -26,6 +27,7 @@
         origin-price="199.00"
         @click="detail(item._id)"
       />
+       </van-pull-refresh>
     </section>
   </div>
 </template>
@@ -34,7 +36,7 @@
 import * as api from "../api/getProlist.js";
 import axios from "axios";
 export default {
-  name: "Nurse",
+  name: "Film",
   data() {
     return {
       title: "电影",
@@ -42,6 +44,8 @@ export default {
       list: [],
       value1: 0,
       value2: "a",
+       value:'',
+      isLoading:false,
       option1: [
         { text: "附近店铺", value: 0 },
         { text: "新款商品", value: 1 },
@@ -63,6 +67,15 @@ export default {
     },
     onClickRight() {
       Toast("");
+    },
+     detail(id) {
+      this.$router.push("/detail/" + id);
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功');
+        this.isLoading = false;
+      }, 500);
     }
   },
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="详情" left-text="返回" left-arrow :fixed="true" @click-left="onClickLeft" />
+    <van-nav-bar title="购物车" left-text="返回" left-arrow :fixed="true" @click-left="onClickLeft" />
     <div class="container">
       <van-coupon-cell :coupons="coupons" :chosen-coupon="chosenCoupon" @click="showList = true" />
       <van-card

@@ -1,15 +1,18 @@
 <template>
   <div class="wrap">
     <header>
-    <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-      <van-icon name="search" slot="right" />
-    </van-nav-bar></header>
+      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+        <van-icon name="search" slot="right" />
+      </van-nav-bar>
+    </header>
+     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
     <div class="box">
       <van-grid :gutter="10" :column-num="2" square>
         <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
       </van-grid>
     </div>
     <img src="../assets/cc.jpg" alt class="cc" />
+     </van-pull-refresh>
   </div>
 </template>
 
@@ -24,7 +27,8 @@ export default {
       title: "自然景观",
       active: 0,
       list: [],
-      value: ""
+      value: "",
+      isLoading:false,
     };
   },
   methods: {
@@ -36,6 +40,12 @@ export default {
     },
     onClickRight() {
       Toast("");
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功');
+        this.isLoading = false;
+      }, 500);
     }
   },
 
@@ -66,7 +76,6 @@ header {
 }
 .box {
   flex: 1;
-  margin-bottom: 9vh;
   margin-top: 7vh;
 }
 .box img {
@@ -82,5 +91,6 @@ header {
   right: 6vw;
   bottom: 3vh;
   border-radius: 50%;
+  z-index: 1;
 }
 </style>

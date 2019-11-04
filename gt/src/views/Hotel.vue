@@ -8,18 +8,22 @@
     <section>
       <van-tabs v-model="active">
         <van-tab title="中国酒店">
+           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <div class="box">
             <van-grid :gutter="8" :column-num="1">
               <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
             </van-grid>
           </div>
+           </van-pull-refresh>
         </van-tab>
         <van-tab title="海外酒店">
+           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <div class="box">
             <van-grid :gutter="10" :column-num="1">
               <van-grid-item v-for="item in list" :icon="item.coverImg" :text="item.name" />
             </van-grid>
           </div>
+           </van-pull-refresh>
         </van-tab>
       </van-tabs>
     </section>
@@ -35,9 +39,10 @@ export default {
   data() {
     return {
       title: "醉美酒店",
-      active: 2,
+      active: 0,
       value: "",
-      list: []
+      list: [],
+      isLoading:false,
     };
   },
   methods: {
@@ -49,6 +54,12 @@ export default {
     },
     onClickRight() {
       Toast("");
+    },
+     onRefresh() {
+      setTimeout(() => {
+        this.$toast("刷新成功");
+        this.isLoading = false;
+      }, 500);
     }
   },
 
@@ -85,7 +96,6 @@ header {
 }
 section {
   flex: 1;
-  margin-bottom: 9vh;
   margin-top: 7vh;
 }
 .cc {
@@ -95,5 +105,6 @@ section {
   right: 6vw;
   bottom: 3vh;
   border-radius: 50%;
+  z-index: 1;
 }
 </style>

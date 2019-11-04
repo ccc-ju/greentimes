@@ -1,6 +1,5 @@
 <template>
   <div class="wrap">
-    
       <header>
         <van-nav-bar
           :title="title"
@@ -11,9 +10,8 @@
           <van-icon name="search" slot="right" />
         </van-nav-bar>
       </header>
-      <!-- <Loading v-if="isLoading" /> -->
-    <!-- <Scroller v-else :handleToScroll="handleToScroll" :handleToTouchEnd="handleToTouchEnd"> -->
-      <section>
+       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+     <section>
         <div class="cont">
           <van-swipe :autoplay="3000" indicator-color="white" class="box">
             <van-swipe-item>
@@ -46,6 +44,7 @@
           <p class="txt">发布房源</p>
         </div>
       </section>
+       </van-pull-refresh>
    
   </div>
 </template>
@@ -53,7 +52,6 @@
 <script>
 import * as api from "../api/getProlist.js";
 import { Toast } from "vant";
-
 import axios from "axios";
 export default {
   name: "Shouye",
@@ -67,7 +65,7 @@ export default {
       per: 10,
       switch1: false,
       switch2: false,
-      isLoading: true,
+      isLoading: false,
       option: [
         { text: "郑州", value: 0 },
         { text: "活动商品", value: 1 },
@@ -94,6 +92,12 @@ export default {
     },
     detail(id) {
       this.$router.push("/detail/" + id);
+    },
+     onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功');
+        this.isLoading = false;
+      }, 500);
     }
   },
 
@@ -135,6 +139,9 @@ section {
 .cont {
   margin-bottom: 9vh;
   margin-top: 7vh;
+}
+van-pull-refresh{
+   margin-top: 7vh;
 }
 van-swipe-item {
   width: 95vw;

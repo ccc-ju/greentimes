@@ -78,12 +78,9 @@ export default {
     },
     onConfirm() {
       this.$refs.item.toggle();
-<<<<<<< HEAD
     },
     detail(id) {
       this.$router.push("/detail/" + id);
-=======
->>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
     }
   },
 
@@ -99,7 +96,6 @@ export default {
 
 
 <style scoped="">
-<<<<<<< HEAD
 html,
 body {
   height: 100%;
@@ -108,27 +104,20 @@ header {
   width: 100%;
   height: 7vh;
   position: fixed;
-  z-index: 2;
-=======
-html,body{
-  height:100%;
->>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
-}
+  z-index: 2;}
 .wrap {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-<<<<<<< HEAD
 section{
   flex: 1;
   overflow: hidden;
 }
 .cont {
   margin-bottom: 9vh;
-  margin-top: 7vh;
-=======
+  margin-top: 7vh;}
 
 footer {
   margin-top: 9vh;
@@ -136,7 +125,6 @@ footer {
 .cont {
   flex: 1;
   overflow:auto;
->>>>>>> 65a64cbe9d470f74fce639f09c7033e00c47d58f
 }
 van-swipe-item {
   width: 95vw;

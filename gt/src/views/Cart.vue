@@ -75,15 +75,17 @@ export default {
     }
   },
   mounted() {
-    api.cart(
-      { product: this.$route.params._id, quantity: 1 },
+    api.carts(
+      { },
       localStorage.getItem('token')
       ).then(data => {
-      console.log(data);
-     // this.cart = data.data;
-    });
+      // if(data.data.code == 'success'){
+      //   this.$router.push("/cart");
+      // }
+      console.log(data)
+      })
   }
-};
+}
 </script>
 
 <style scoped="">

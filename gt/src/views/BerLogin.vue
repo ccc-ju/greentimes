@@ -47,24 +47,22 @@ export default {
   },
   methods: {
     login() {
-      this.$router.push("/index");
       api
         .login({
-          username: this.username,
+          userName: this.username,
           password: this.password
         })
         .then(data => {
           console.log(data);
-          // if(status = 200){
-          //    Dialog.confirm({
-          //     title: "登录",
-          //     message: "登录成功",
-             
-          //   })
-          // }
-
+          if (data.status == 200) {
+            this.$router.push("/index");
+            Dialog.confirm({
+              title: "登录",
+              message: "登录成功"
+            });
+          }
+          
         });
-        
     },
     regist() {
       this.$router.push("/berRegister");

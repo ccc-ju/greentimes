@@ -68,10 +68,20 @@ export default {
       this.$toast("点击图标");
     },
     add() {
-      this.$router.push("/cart");
+     
+       api.cart(
+      { product: this.$route.params._id, quantity: 1 },
+      localStorage.getItem('token')
+      ).then(data => {
+      if(data.data.code == 'success'){
+        this.$router.push("/cart");
+      }
+       
+    });
     },
     buy() {
       this.$router.push("/buy");
+
     },
     onChange(index) {
       this.showList = false;

@@ -27,7 +27,7 @@
           :error-message="pass"
         />
       </van-cell-group>
-      <van-checkbox v-model="checked" class="ck" checked-color="#ddd">
+      <van-checkbox v-model="checked" class="ck" checked-color="#53fa06">
         阅读并同意
         <a href>《青葱时代服务协议》及《隐私政策》</a>
       </van-checkbox>
@@ -56,8 +56,7 @@ export default {
   computed: {
     usertel() {
       if (this.username === "") {
-        Toast("手机号码输入有误");
-        return;
+        return "";
       } else if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(this.username)) {
         return "手机号格式错误";
       } else {
@@ -77,51 +76,50 @@ export default {
 
   methods: {
     regist() {
-      // this.$router.push("/berRegister");
-      api
-        .reg({
-          userName: this.username,
-          password: this.password,
-          nickName: this.nickName,
-          avatar: ""
-        })
-        .then(data => {
-          console.log(data.data);
-          if (data.data.code === "error") {
-            Dialog.confirm({
-              title: "注册",
-              message: "用户名已注册，请直接登录"
-            })
-              .then(() => {
-                // on confirm
-                this.$router.push("/berLogin");
+      if (
+        this.username === "" ||
+        this.usertel === "手机号码格式错误" ||
+        (this.password === "" || this.pass === "密码格式错误，最少为6位")
+      ) {
+        return Toast("手机号码或密码输入有误");
+      } else {
+        api
+          .reg({
+            userName: this.username,
+            password: this.password,
+            nickName: this.nickName
+          })
+          .then(data => {
+            console.log(data.data);
+            if (data.data.token === localStorage.getItem.token) {
+              Dialog.confirm({
+                title: "注册",
+                message: "用户名已注册，点击“确认”去登录"
               })
-              .catch(() => {
-                // on cancel
-              });
-          } else {
-            Dialog.confirm({
-              title: "注册",
-              message: "注册成功"
-            })
-              .then(() => {
-                // on confirm
+                .then(() => {
+                  // on confirm
+                  this.$router.push("/berLogin");
+                })
+                .catch(() => {
+                  // on cancel
+                });
+            } else {
+              Dialog.confirm({
+                title: "注册",
+                message: "注册成功"
               })
-              .catch(() => {
-                // on cancel
-              });
-          }
-
-          localStorage.setItem("username", this.username);
-          localStorage.setItem("token", data.data.token);
-        });
-      if (this.username === "" || this.usertel === "手机号码格式错误") {
-        Toast("手机号码输入有误");
-        return;
-      }
-      if (this.password === "" || this.pass === "密码格式错误，最少为6位") {
-        Toast("密码输入有误");
-        return;
+                .then(() => {
+                  // on confirm
+                  this.$router.push("/berLogin");
+                })
+                .catch(() => {
+                  // on cancel
+                });
+              localStorage.setItem("username", this.username);
+              localStorage.setItem("password", this.password);
+              localStorage.setItem("token", data.data.token);
+            }
+          });
       }
     },
     onClickLeft() {
@@ -142,7 +140,6 @@ export default {
 .zc {
   width: 90vw;
   margin-top: 3vh;
-  background: rgba(255, 255, 255, 0);
   border-radius: 5px;
   border: 0;
   margin: 2vh 0 0 5vw;

@@ -469,11 +469,27 @@ var router = new Router({
       }
     },
     {
+      path: '/description/:_id',
+      name: 'description',
+      component: () => import('@/views/Descriptions'),
+      meta: {
+        title: ""
+      }
+    },
+    {
       path: '/colleage',
       name: 'colleage',
       component: () => import('@/views/Colleage'),
       meta: {
         title: "馅儿饼"
+      }
+    },
+    {
+      path: '/fraud/:_id',
+      name: 'fraud',
+      component: () => import('@/views/Fraud'),
+      meta: {
+        title: "骗局路演"
       }
     },
     {

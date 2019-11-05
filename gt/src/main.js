@@ -25,7 +25,9 @@ import { Dialog } from 'vant';
 import { Sku } from 'vant';
 import Loading from '@/components/Loading';
 import { PullRefresh } from 'vant';
-
+import share from 'vue-social-share'
+import 'vue-social-share/dist/client.css';
+Vue.use(share)
 Vue.use(PullRefresh);
 
 Vue.component('Loading',Loading)

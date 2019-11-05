@@ -1,26 +1,38 @@
 <template>
   <div id="aegean">
-    <header>
+    <header class="aegean-nav">
       <van-nav-bar title="爱琴海" left-text="返回" left-arrow @click-left="onClickLeft" />
-      <van-tabs v-model="active">
-        <van-tab title="我的岛"></van-tab>
-        <van-tab title="推荐"></van-tab>
-      </van-tabs>
     </header>
-
-    <section class="follow">
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-        <p>我关注的</p>
-        <van-card
-          v-for="item in list"
-          :thumb="item.coverImg"
-          :price="item.price"
-          :title="item.name"
-          :desc="item.descriptions"
-          origin-price="199.00"
-          @click="detail(item1._id)"
-        />
-      </van-pull-refresh>
+    <section class="aegean-list">
+      <van-tabs v-model="active">
+        <van-tab title="我的岛">
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <p>我关注的</p>
+            <van-card
+              v-for="item in list"
+              :thumb="item.coverImg"
+              :price="item.price"
+              :title="item.name"
+              :desc="item.descriptions"
+              origin-price="199.00"
+            />
+          </van-pull-refresh>
+        </van-tab>
+        <van-tab title="推荐">
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <p>我关注的</p>
+            <van-card
+              v-for="item in list"
+              :thumb="item.coverImg"
+              :price="item.price"
+              :title="item.name"
+              :desc="item.descriptions"
+              origin-price="199.00"
+              @click="detail(item._id)"
+            />
+          </van-pull-refresh>
+        </van-tab>
+      </van-tabs>
     </section>
 
     <footer>
@@ -50,9 +62,6 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    detail(id) {
-      this.$router.push("/detail/" + id);
-    },
     onRefresh() {
       setTimeout(() => {
         this.$toast("刷新成功");
@@ -81,20 +90,20 @@ body {
   display: flex;
   flex-direction: column;
 }
-header {
+.aegean-nav {
   width: 100vw;
-  height: 96px;
+  height: 46px;
   position: fixed;
   top: 0;
   z-index: 1;
 }
-.follow {
+.aegean-list {
   flex: 1;
   position: relative;
-  top: 96px;
+  top: 46px;
   bottom: 50px;
 }
-.follow p{
+.aegean-list p {
   margin: 0 24px;
   font-size: 16px;
   line-height: 24px;

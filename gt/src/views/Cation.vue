@@ -4,24 +4,36 @@
       <van-nav-bar title="搭配" left-text="返回" left-arrow @click-left="onClickLeft">
         <van-icon name="search" slot="right" />
       </van-nav-bar>
-      <van-tabs v-model="active">
-        <van-tab title="三观人生"></van-tab>
-        <van-tab title="社交礼仪"></van-tab>
-      </van-tabs>
     </header>
-
     <section>
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-        <van-card
-          v-for="item1 in list"
-          :thumb="item1.coverImg"
-          :price="item1.price"
-          :title="item1.name"
-          :desc="item1.descriptions"
-          origin-price="199.00"
-          @click="detail(item1._id)"
-        />
-      </van-pull-refresh>
+      <van-tabs v-model="active">
+        <van-tab title="三观人生">
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <van-card
+              v-for="item1 in list"
+              :thumb="item1.coverImg"
+              :price="item1.price"
+              :title="item1.name"
+              :desc="item1.descriptions"
+              origin-price="199.00"
+              @click="detail(item1._id)"
+            />
+          </van-pull-refresh>
+        </van-tab>
+        <van-tab title="社交礼仪">
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <van-card
+              v-for="item1 in list"
+              :thumb="item1.coverImg"
+              :price="item1.price"
+              :title="item1.name"
+              :desc="item1.descriptions"
+              origin-price="199.00"
+              @click="detail(item1._id)"
+            />
+          </van-pull-refresh>
+        </van-tab>
+      </van-tabs>
     </section>
   </div>
 </template>
@@ -75,7 +87,7 @@ body {
 }
 header {
   width: 100vw;
-  height: 96px;
+  height: 46px;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -83,6 +95,6 @@ header {
 section {
   flex: 1;
   position: relative;
-  top: 96px;
+  top: 46px;
 }
 </style>

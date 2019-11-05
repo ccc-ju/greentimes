@@ -1,25 +1,27 @@
 <template>
   <div id="milk">
-    <header>
+    <header class="milk-nav">
       <van-nav-bar title="奶妈" left-text="返回" left-arrow @click-left="onClickLeft">
         <van-icon name="search" slot="right" />
       </van-nav-bar>
-      <van-tabs v-model="active">
-        <van-tab v-for="(item,i) in ming" :title="item"></van-tab>
-      </van-tabs>
     </header>
-    <section>
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-        <van-card
-          v-for="item1 in list"
-          :thumb="item1.coverImg"
-          :price="item1.price"
-          :title="item1.name"
-          :desc="item1.descriptions"
-          origin-price="199.00"
-          @click="detail(item1._id)"
-        />
-      </van-pull-refresh>
+
+    <section class="milk-list">
+      <van-tabs v-model="active">
+        <van-tab v-for="(item,i) in ming" :title="item">
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <van-card
+              v-for="item1 in list"
+              :thumb="item1.coverImg"
+              :price="item1.price"
+              :title="item1.name"
+              :desc="item1.descriptions"
+              origin-price="199.00"
+              @click="detail(item1._id)"
+            />
+          </van-pull-refresh>
+        </van-tab>
+      </van-tabs>
     </section>
   </div>
 </template>
@@ -87,16 +89,16 @@ body {
   display: flex;
   flex-direction: column;
 }
-header {
+.milk-nav {
   width: 100vw;
-  height: 96px;
+  height: 46px;
   position: fixed;
   top: 0;
   z-index: 1;
 }
-section {
+.milk-list {
   flex: 1;
   position: relative;
-  top: 96px;
+  top: 46px;
 }
 </style>

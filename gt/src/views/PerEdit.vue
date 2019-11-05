@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="peredit">
     <van-nav-bar title="个性编辑" left-text="返回" left-arrow @click-left="onClickLeft" />
     <ul>
       <li v-tap="{methods:mineEdit}">
@@ -39,19 +39,24 @@ export default {
 </script>
 
 <style scoped>
+#peredit{
+  width: 100vw;
+  height: 100vh;
+  background: #f1f1f1;
+}
 ul {
   margin: 10px 0;
 }
 li {
   list-style: none;
   background: #fff;
-  border-top: solid 1px #bdbaba;
+  border-top: solid 0.5px #bdbaba;
   padding: 0 16px;
   height: 40px;
   line-height: 40px;
 }
 li:last-child {
-  border-bottom: solid 1px #bdbaba;
+  border-bottom: solid 0.5px #bdbaba;
 }
 li span{
     font-size: 16px;

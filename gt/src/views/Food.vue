@@ -1,29 +1,30 @@
 <template>
   <div id="food">
-    <header>
+    <header class="food-nav">
       <van-nav-bar title="美食攻略" left-text="返回" left-arrow @click-left="onClickLeft">
         <van-icon name="search" slot="right" />
       </van-nav-bar>
-      <van-dropdown-menu class="nav">
-        <van-dropdown-item v-model="value1" :options="option1" v-tap="{methods:address}" />
+    </header>
+    <section class="food-list">
+      <van-dropdown-menu>
+        <van-dropdown-item v-model="value1" :options="option1" />
         <van-dropdown-item v-model="value2" :options="option2" />
         <van-dropdown-item v-model="value3" :options="option3" />
       </van-dropdown-menu>
-    </header>
-    <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-    <section>
-      <van-card
-        v-for="item in list"
-        :thumb="item.coverImg"
-        :price="item.price"
-        :title="item.name"
-        :desc="item.descriptions"
-        origin-price="199.00"
-        @click="detail(item._id)"
-        class="prolist"
-      />
+
+      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+        <van-card
+          v-for="item in list"
+          :thumb="item.coverImg"
+          :price="item.price"
+          :title="item.name"
+          :desc="item.descriptions"
+          origin-price="199.00"
+          @click="detail(item._id)"
+          class="prolist"
+        />
+      </van-pull-refresh>
     </section>
-    </van-pull-refresh>
   </div>
 </template>
 
@@ -57,7 +58,7 @@ export default {
         { text: "火锅烧烤", value: "G" },
         { text: "茶饮咖啡", value: "H" }
       ],
-      isLoading: false,
+      isLoading: false
     };
   },
   methods: {
@@ -70,7 +71,7 @@ export default {
     },
     onRefresh() {
       setTimeout(() => {
-        this.$toast('刷新成功');
+        this.$toast("刷新成功");
         this.isLoading = false;
       }, 500);
     }
@@ -84,8 +85,7 @@ export default {
         this.list = data.data.products;
       });
   }
-}
-
+};
 </script>
 
 <style scope="" >
@@ -97,15 +97,15 @@ body {
   display: flex;
   flex-direction: column;
 }
-header {
+.food-nav {
   width: 100vw;
   position: fixed;
   top: 0;
   z-index: 1;
 }
-section {
+.food-list {
   flex: 1;
   position: relative;
-  top: 96px;
+  top: 46px;
 }
 </style>

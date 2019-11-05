@@ -12,9 +12,9 @@
       <li></li>
     </ul>
     <van-cell-group>
-      <van-field v-model="text1" clearable label="标题" placeholder="请输入标题" />
+      <van-field v-model="value1" clearable label="标题" placeholder="请输入标题" />
 
-      <van-field v-model="text2" type="password" label="内容" placeholder="请输入内容" />
+      <van-field v-model="value2" type="string" label="内容" placeholder="请输入内容" />
     </van-cell-group>
 
     <van-button class="btn" type="primary" v-tap="{methods:storage}">存入草稿箱</van-button>
@@ -22,12 +22,14 @@
 </template>
 
 <script>
+import { Dialog } from "vant";
 export default {
   name: "edit",
   data() {
     return {
-      text1: "",
-      text2: ""
+      value1: "",
+      value2: "",
+      list: []
     };
   },
   methods: {
@@ -35,11 +37,30 @@ export default {
       this.$router.go(-1);
     },
     onClickRight() {
-      this.$router.push('mineEdit')
+      Dialog.confirm({
+        title: "发布",
+        message: "是否发布此内容"
+      })
+        .then(() => {
+          this.$router.push("mineEdit");
+        })
+        .catch(() => {});
     },
     storage() {
-      this.$router.push('drafts')
-    }
+      Dialog.confirm({
+        title: "草稿箱",
+        message: "是否存入草稿箱"
+      })
+        .then(list => {
+          list += {
+            title: this.value1,
+            content: this.value2
+          };
+          console.log(list);
+          this.$router.push("drafts");
+        })
+        .catch(() => {});
+    },
   }
 };
 </script>

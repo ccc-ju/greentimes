@@ -105,7 +105,7 @@ header {
 }
 section {
   flex: 1;
-  margin-bottom: 9vh;
+  margin-bottom: 1vh;
   margin-top: 7vh;
 }
 .box img {

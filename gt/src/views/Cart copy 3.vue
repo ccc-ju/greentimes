@@ -1,11 +1,10 @@
 <template>
   <div>
     <van-nav-bar title="购物车" left-text="返回" left-arrow :fixed="true" @click-left="onClickLeft" />
-
     <div class="container">
       <van-coupon-cell :coupons="coupons" :chosen-coupon="chosenCoupon" @click="showList = true" />
       <div v-for="(item,index) in list" class="box">
-        <van-checkbox v-model="item.checked" @click="dx(index)" />
+        <van-checkbox v-model="checked" class="check" @click="allPick(),checkModel()" />
         <van-swipe-cell :on-close="onClose">
           <van-card
             class="card"
@@ -16,7 +15,7 @@
             :desc="item.product.descriptions"
           />
           <template slot="right">
-            <van-button square type="danger" text="删除" v-tap="{methods:del,id:item._id}" />
+            <van-button square type="danger" text="删除" v-tap="{methods:del,id:item._id}"/>
           </template>
         </van-swipe-cell>
         <p class="adddel">
@@ -26,9 +25,8 @@
         </p>
       </div>
     </div>
-    <van-submit-bar :price="totalPrice" button-text="提交订单" @submit="onSubmit">
-      <van-checkbox v-model="checked" @click="qx()">全选</van-checkbox>
-
+    <van-submit-bar :price="0" button-text="提交订单" @submit="onSubmit">
+      <van-checkbox v-model="checked">全选</van-checkbox>
       <span slot="tip" v-tap="{methods:select}">
         请选择收货地址
         <span v-tap="{methods:modify}">修改地址</span>
@@ -74,7 +72,7 @@ export default {
       showList: false,
       value: 1,
       checked: true,
-      list: []
+      list: [],
     };
   },
   methods: {
@@ -108,37 +106,15 @@ export default {
         this.list[index].quantity--;
       }
     },
-    dx(index) {
-      console.log("aa");
-      console.log(this.list[index]);
-      this.list[index].checked = !this.list[index].checked;
-      var count = 0;
-      this.list.map((item, index) => {
-        if (item.checked) {
-          count++;
-        }
-      });
-      if (this.list.length == count) {
-        this.checked = true;
-      } else {
-        this.checked = false;
-      }
-      console.log(count);
-    },
-    qx() {
-      this.checked = !this.checked;
-      this.list.map((item, index) => {
-        item.checked = this.checked;
-      });
-    },
-    del(val) {
-      api.del(val.id, {}, localStorage.getItem("token")).then(data => {
-        console.log(data.data);
-        if (data.data) {
+     del(val) {
+      api.del(val.id,{},localStorage.getItem('token')
+        ).then(data => {
+          console.log(data.data)
+          if (data.data) {
           alert("删除成功");
-          location.reload();
-        }
-      });
+            location.reload()
+          }
+        });
     },
     onClose(clickPosition, instance) {
       switch (clickPosition) {
@@ -154,32 +130,16 @@ export default {
           });
           break;
       }
-    }
+    },
   },
   mounted() {
     api.cartList({}, localStorage.getItem("token")).then(data => {
-      // console.log(data.data[0].product.price);
-      var arr = data.data;
-      arr = arr.filter(function(item, index) {
+      console.log(data.data);
+      this.list = data.data;
+      this.list = this.list.filter(function(item, index) {
         return item.product !== null;
       });
-      arr.map((item, index) => {
-        item.checked = true;
-      });
-      this.list = arr;
     });
-  },
-  computed: {
-    totalPrice() {
-      var sum = 0;
-      this.list.map((item, index) => {
-        if (item.checked) {
-          sum += item.product.price * item.quantity;
-        }
-        
-      });
-      return sum*100;
-    }
   }
 };
 </script>
@@ -202,11 +162,10 @@ van-card {
   top: 10vh;
   z-index: 2;
 }
-.van-checkbox {
+.check {
   position: absolute;
   left: 3vw;
   top: 6vh;
-  z-index: 1;
 }
 .card {
   width: 87vw;

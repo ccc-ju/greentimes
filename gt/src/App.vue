@@ -15,7 +15,7 @@ export default {
 <style scoped="">
 
 #app{
-  height: 100%;
+  height: 90vh;
   width: 100vw;
 }
 body{

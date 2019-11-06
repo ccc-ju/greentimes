@@ -38,11 +38,11 @@
           <img src="../assets/i3.jpg" alt />
           <span>直租吧</span>
         </p>
-        <p>
+        <p v-tap="{methods:food}">
           <img src="../assets/i4.jpg" alt />
           <span>美食攻略</span>
         </p>
-        <p>
+        <p v-tap="{methods:milk}">
           <img src="../assets/i5.jpg" alt />
           <span>奶妈</span>
         </p>
@@ -341,6 +341,12 @@ export default {
     },
     colleage(){
       this.$router.push('/colleage');
+    },
+     milk(){
+      this.$router.push('/milk');
+    },
+    food(){
+      this.$router.push('/food');
     },
   }
 };

@@ -83,11 +83,11 @@ export default {
       ) {
         return Toast("手机号码或密码输入有误");
       } else {
+
         api
           .reg({
             userName: this.username,
             password: this.password,
-            nickName: this.nickName
           })
           .then(data => {
             console.log(data.data);

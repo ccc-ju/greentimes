@@ -41,13 +41,13 @@ li {
   align-items: center;
   list-style: none;
   background: #fff;
-  border-top: solid 1px #bdbaba;
+  border-top: solid 0.5px #bdbaba;
   padding: 0 16px;
   height: 50px;
   line-height: 50px;
   font-size: 16px;
 }
 li:last-child {
-  border-bottom: solid 1px #bdbaba;
+  border-bottom: solid 0.5px #bdbaba;
 }
 </style>

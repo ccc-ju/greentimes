@@ -36,11 +36,10 @@ export default {
 .wrap {
   width: 100vw;
   height: 100vh;
-  background: url(../assets/acc.jpg) no-repeat;
-  background-size: cover;
 }
 .wrap img {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 span{
   display: block;

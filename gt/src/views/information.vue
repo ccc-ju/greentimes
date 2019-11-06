@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="infor">
     <header>
       <van-nav-bar title="个人信息" left-text="返回" left-arrow @click-left="onClickLeft" />
     </header>
@@ -111,6 +111,12 @@ export default {
 
 <style scoped>
 body {
+  width:100vw;
+  height: 100vh;
+}
+#infor{
+  width:100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -125,7 +131,7 @@ section {
   height: 60px;
   margin: 10px 0;
   line-height: 60px;
-  border-bottom: solid 1px #bdbaba;
+  border-bottom: solid 0.5px #bdbaba;
   border-top: solid 1px #bdbaba;
 }
 .headpic p {

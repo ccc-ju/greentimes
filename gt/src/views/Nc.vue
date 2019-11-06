@@ -30,7 +30,7 @@ export default {
 
 <style  scoped>
 .inp{
-    border-top: solid 1px #a09898; 
-    border-bottom: solid 1px #a09898; 
+    border-top: solid 0.5px #a09898; 
+    border-bottom: solid 0.5px #a09898; 
 }
 </style>

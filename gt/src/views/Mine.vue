@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <header  v-tap="{methods:bg}">
+  <div id="mine">
+    <header v-tap="{methods:bg}">
       <div class="infor" v-tap="{methods:edit}">
         <img src="../assets/t.jpg" />
-        <p>{{nc}}</p>
+        <p>用户100134188</p>
         <span>
           {{titlename}}
           <br />
@@ -53,12 +53,12 @@
         </li>
       </ul>
     </section>
-<van-action-sheet
-  v-model="show"
-  :actions="actions"
-  cancel-text="取消"
-  @cancel="onCancel"
-/>
+    <van-action-sheet v-model="show" :actions="actions" cancel-text="取消" @cancel="onCancel" />
+    <footer>
+      <van-action-sheet v-model="show1" title="标题" cancel-text="取消" @cancel="onCancel">
+        <share :config="config"></share>
+      </van-action-sheet>
+    </footer>
   </div>
 </template>
 
@@ -69,11 +69,22 @@ export default {
   data() {
     return {
       active: 3,
-      nc:'',
-      name: "",
-      titlename: "",
-       show: false,
+      name: "100134188",
+      titlename: "洪荒岛岛主",
+      show: false,
+      show1: false,
       actions: [{ name: "拍照" }, { name: "去相册寻找" }],
+      config: {
+        url: "http://www.baidu.com",
+        source: "",
+        title: "",
+        description: "hi",
+        image: "",
+        sites: ["qzone", "qq", "weibo", "wechat"],
+        wechatQrcodeTitle: "微信扫一扫：分享",
+        wechatQrcodeHelper:
+          "<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      }
     };
   },
   methods: {
@@ -99,20 +110,23 @@ export default {
       this.$router.push("Service");
     },
     share() {
-      
+      this.show1 = true;
     },
     set() {
       this.$router.push("Set");
     }
   },
-  mounted() {
-
-  }
+  mounted() {}
 };
 </script>
 
 
 <style scoped="">
+#mine {
+  width: 100vw;
+  height: 100vh;
+  background: #f1f1f1;
+}
 header {
   width: 100%;
   height: 200px;
@@ -136,30 +150,30 @@ header {
   border: 0;
   overflow: hidden;
 }
-.infor p{
+.infor p {
   color: #fff;
   font-size: 14px;
-  margin-top: 5px; 
+  margin-top: 5px;
 }
-.infor span{
+.infor span {
   color: #fff;
   font-size: 14px;
   text-align: center;
 }
 
 section {
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 ul {
   margin-bottom: 10px;
 }
- li {
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
   height: 40px;
-  border-top: solid 1px #bdbaba;
+  border-top: solid 0.5px #bdbaba;
   background: #fff;
 }
 li:last-child {
@@ -209,5 +223,10 @@ li span {
   font-size: 16px;
   line-height: 40px;
   margin: 0 16px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0 25vw;
 }
 </style>

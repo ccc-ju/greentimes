@@ -30,5 +30,3 @@ export const del=(id,params,token)=>{
 
 
 
-
-

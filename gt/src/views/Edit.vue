@@ -29,8 +29,10 @@ export default {
     return {
       value1: "",
       value2: "",
-      list: []
+      list: "",
+      data:""
     };
+
   },
   methods: {
     onClickLeft() {
@@ -51,13 +53,16 @@ export default {
         title: "草稿箱",
         message: "是否存入草稿箱"
       })
-        .then(list => {
-          list += {
+        .then((data,list) => {
+          data = {
             title: this.value1,
             content: this.value2
           };
-          console.log(list);
-          this.$router.push("drafts");
+          console.log(data);
+          this.list += JSON.stringify(data)
+          console.log(this.list);
+          localStorage.setItem("Edit",this.list)
+          // this.$router.push("drafts");
         })
         .catch(() => {});
     },

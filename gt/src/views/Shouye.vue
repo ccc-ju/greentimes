@@ -104,7 +104,7 @@ export default {
   mounted() {
     this.$emit("toparent", this.title);
     api
-      .getPro({ per: 10, page: 1, name: name, product_category: "" })
+      .getPro({ per: 30, page: 1, name: name, product_category: "" })
       .then(data => {
         // console.log(data.data.products);
         this.list = data.data.products;
@@ -135,9 +135,10 @@ header {
 section {
   flex: 1;
   overflow: hidden;
+  margin-bottom: 8vh;
 }
 .cont {
-  margin-bottom: 9vh;
+  margin-bottom: 1vh;
   margin-top: 7vh;
 }
 van-pull-refresh{

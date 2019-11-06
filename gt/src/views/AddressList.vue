@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { Toast } from "vant";
 export default {
   data() {
     return {
@@ -23,11 +24,10 @@ export default {
 
   methods: {
     onAdd() {
-      Toast("新增地址");
+      this.$toast("新增地址");
     },
-
     onEdit(item, index) {
-      Toast("编辑地址:" + index);
+      this.$toast("编辑地址:" + index);
     },
      onClickLeft() {
       this.$router.go(-1);

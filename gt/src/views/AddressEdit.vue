@@ -1,22 +1,25 @@
 <template>
   <div>
      <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" />
-    <van-address-edit
+   <van-address-edit
   :area-list="areaList"
   show-postal
   show-delete
   show-set-default
   show-search-result
   :search-result="searchResult"
-  area-columns-placeholder="['请选择', '请选择', '请选择']"
+  :area-columns-placeholder="['请选择', '请选择', '请选择']"
   @save="onSave"
   @delete="onDelete"
   @change-detail="onChangeDetail"
 />
+
   </div>
 </template>
 
 <script>
+
+import { Toast } from "vant";
 export default {
   data() {
     return {
@@ -28,15 +31,16 @@ export default {
   },
 
   methods: {
-    onSave() {
+     onSave() {
       Toast('save');
     },
     onDelete() {
       Toast('delete');
     },
-     onClickLeft() {
-      this.$router.go(-1);
+    onClickLeft(){
+        this.$router.go(-1)
     },
+   
     onChangeDetail(val) {
       if (val) {
         this.searchResult = [{
@@ -46,8 +50,7 @@ export default {
       } else {
         this.searchResult = [];
       }
-    },
-    areaList:''
+    }
   }
 }
 </script>

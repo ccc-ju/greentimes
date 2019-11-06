@@ -17,13 +17,16 @@ export const getDetail=(id,params)=>{
 }
 
 export const cart=(params,token)=>{
-    return API.POSTHEAD('/api/v1/shop_carts',params,token)
+    return API.POST_Token('/api/v1/shop_carts',params,token)
 }
 
-export const carts=(params,token)=>{
+export const cartList=(params,token)=>{
     return API.GETHEAD('/api/v1/shop_carts',params,token)
 }
 
+export const del=(id,params,token)=>{
+    return API.DELETE('/api/v1/shop_carts/'+id,params,token)
+}
 
 
 

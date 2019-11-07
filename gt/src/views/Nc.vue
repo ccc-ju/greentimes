@@ -4,9 +4,8 @@
       <van-nav-bar title="昵称" left-text="返回" left-arrow @click-left="onClickLeft" />
     </header>
     <section>
-      <van-field class="inp" readonly clickable :value="value" @touchstart.native.stop="show = true" />
-
-      <van-number-keyboard v-model="value" :show="show" :maxlength="6" @blur="show = false" />
+      <van-field class="nc" v-model="value" type="textarea" label="昵称" placeholder="请输入昵称" />
+      <van-button type="primary" class="btn" v-tap="{methods:change}">主要按钮</van-button>
     </section>
   </div>
 </template>
@@ -17,20 +16,36 @@ export default {
   data() {
     return {
       show: false,
-      value: ""
+      value: localStorage.getItem("nickname1"),
     };
   },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
+    },
+    change() {
+      console.log(this.value);
+      if (this.value === "") {
+        this.value == localStorage.getItem("nickname1");
+      }else{
+        let value = this.value
+        localStorage.setItem("nickname2",value)
+      }
     }
   }
 };
 </script>
 
 <style  scoped>
-.inp{
-    border-top: solid 0.5px #a09898; 
-    border-bottom: solid 0.5px #a09898; 
+.nc {
+  height: 46px;
+  border-top: solid 0.5px #a09898;
+  border-bottom: solid 0.5px #a09898;
+}
+.btn {
+  margin-top: 16px;
+  width: 80vw;
+  margin-left: 10vw;
+  font-size: 16px;
 }
 </style>

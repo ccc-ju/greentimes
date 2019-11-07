@@ -11,12 +11,12 @@
       <ul>
         <li>
           <span>青葱号</span>
-          <span>{{name}}</span>
+          <span>{{num}}</span>
         </li>
         <li v-tap="{methods:nc}">
           <span>昵称</span>
           <span>
-            用户{{name}}
+            {{nickname}}
             <van-icon class="iconh" name="arrow" />
           </span>
         </li>
@@ -43,7 +43,7 @@
         <li v-tap="{methods:education}">
           <span>最高学历资料</span>
           <span>
-            {{authentication}}
+            {{authentication1}}
             <van-icon class="iconh" name="arrow" />
           </span>
         </li>
@@ -70,11 +70,13 @@ export default {
   name: "Personal",
   data() {
     return {
-      name: "",
+      num: localStorage.getItem("nickname"),
+      nickname: localStorage.getItem("nickname1"),
       show: false,
       actions: [{ name: "拍照" }, { name: "去相册寻找" }],
       authentication: "未认证",
-      grade: ""
+      authentication1: "未认证",
+      grade: "洪荒岛岛主"
     };
   },
   methods: {
@@ -104,7 +106,7 @@ export default {
     },
     island(){
       this.$router.push('island')
-    }
+    },
   }
 };
 </script>
@@ -132,7 +134,7 @@ section {
   margin: 10px 0;
   line-height: 60px;
   border-bottom: solid 0.5px #bdbaba;
-  border-top: solid 1px #bdbaba;
+  border-top: solid 0.5px #bdbaba;
 }
 .headpic p {
   display: inline-block;
@@ -158,14 +160,14 @@ li {
   align-items: center;
   list-style: none;
   background: #fff;
-  border-top: solid 1px #bdbaba;
+  border-top: solid 0.5px #bdbaba;
   padding: 0 16px;
   height: 40px;
   line-height: 40px;
   font-size: 16px;
 }
 li:last-child {
-  border-bottom: solid 1px #bdbaba;
+  border-bottom: solid 0.5px #bdbaba;
 }
 .star {
   color: red;

@@ -22,13 +22,14 @@
 </template>
 
 <script>
-import { Dialog, Toast } from "vant";
+import { Dialog } from "vant";
 export default {
   name: "edit",
   data() {
     return {
       value1: "",
-      value2: ""
+      value2: "",
+      list: []
     };
   },
   methods: {
@@ -36,45 +37,30 @@ export default {
       this.$router.go(-1);
     },
     onClickRight() {
-      if (this.value1 == "" || this.value2 == "") {
-        Toast("标题或内容不能为空");
-        return;
-      } else {
-        Dialog.confirm({
-          title: "发布",
-          message: "是否发布此内容"
+      Dialog.confirm({
+        title: "发布",
+        message: "是否发布此内容"
+      })
+        .then(() => {
+          this.$router.push("mineEdit");
         })
-          .then(() => {
-            let title = this.value1;
-            let content = this.value2;
-            console.log(title, content);
-            localStorage.setItem("title", title);
-            localStorage.setItem("content", content);
-            this.$router.push("mineEdit");
-          })
-          .catch(() => {});
-      }
+        .catch(() => {});
     },
     storage() {
-      if (this.value1 == "" || this.value2 == "") {
-        Toast("标题或内容不能为空");
-        return;
-      } else {
-        Dialog.confirm({
-          title: "草稿箱",
-          message: "是否存入草稿箱"
+      Dialog.confirm({
+        title: "草稿箱",
+        message: "是否存入草稿箱"
+      })
+        .then(list => {
+          list += {
+            title: this.value1,
+            content: this.value2
+          };
+          console.log(list);
+          this.$router.push("drafts");
         })
-          .then(() => {
-            let data = this.value1;
-            let data1 = this.value2;
-            console.log(data, data1);
-            localStorage.setItem("data", data);
-            localStorage.setItem("data1", data1);
-            this.$router.push("drafts");
-          })
-          .catch(() => {});
-      }
-    }
+        .catch(() => {});
+    },
   }
 };
 </script>

@@ -18,12 +18,13 @@
     </van-cell-group>
     <van-index-bar>
       <van-index-anchor index="A" />
-      <van-swipe-cell :on-close="onClose">
+      <!-- <van-swipe-cell :on-close="onClose">
          <van-field label="用户" left-icon="contact" disabled v-tap="{methods:det}"/>
         <template slot="right">
           <van-button square type="danger" text="删除" />
         </template>
-      </van-swipe-cell>
+      </van-swipe-cell> -->
+      <van-field label="用户" left-icon="contact" disabled v-tap="{methods:xin}" />
     </van-index-bar>
   </div>
 </template>

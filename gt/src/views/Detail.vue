@@ -59,7 +59,7 @@ export default {
     },
     add() {
       api.cart(
-          { product: this.$route.params._id, quantity: '' },(localStorage.getItem('token'))
+          { product: this.$route.params._id, quantity:''},(localStorage.getItem('token'))
         )
         .then(data => {
           console.log(data.data)

@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
      <van-nav-bar  left-arrow @click-left="onClickLeft"  class="arr"/>
-   <img src="../assets/acc.jpg" alt="">
+   <!-- <img src="../assets/acc.jpg" alt=""> -->
    <span v-tap="{methods:acc}"></span>
   </div>
 </template>

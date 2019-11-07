@@ -28,5 +28,16 @@ export const del=(id,params,token)=>{
     return API.DELETE('/api/v1/shop_carts/'+id,params,token)
 }
 
+export const sub=(params,token)=>{
+    return API.POST_Token('/api/v1/orders',params,token)
+}
+
+export const address=(params,token)=>{
+    return API.POST_Token('/api/v1/addresses',params,token)
+}
+
+export const xiugai=(params,token)=>{
+    return API.XIUGAI('/api/v1/addresses',params,token)
+}
 
 

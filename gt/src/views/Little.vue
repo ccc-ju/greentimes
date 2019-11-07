@@ -6,14 +6,14 @@
       </van-nav-bar>
     </header>
     <van-search placeholder="搜索" v-model="value" />
-    <section class="details">
-      <van-swipe :autoplay="5000" indicator-color="white" class="per-details">
-        <van-swipe-item v-for="item in list">
+    <section class="derails">
+      <ul class="per-details">
+        <li v-for="(item,i) in list">
           <img :src="item.coverImg" />
           <p>{{item.name}}</p>
           <p>{{item.descriptions}}</p>
-        </van-swipe-item>
-      </van-swipe>
+        </li>
+      </ul>
     </section>
     <footer>
       <p>免费为青少年提供生理健康专家在线咨询，避免上当受骗和身心受到伤害</p>
@@ -37,7 +37,6 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    move() {}
   },
   mounted() {
     this.$emit("toparent", this.title);
@@ -52,25 +51,23 @@ export default {
 </script>
 
 <style scoped>
-.details {
+.derails {
   margin: 25px 35px;
   height: 365px;
 }
-.per-details {
-  width: 305px;
+.per-details li {
   position: absolute;
   height: 365px;
-  background: #f1f1f1;
   border: solid 1px #e1e1e1;
   box-shadow: 5px 5px 5px #f1f1f1;
 }
-.per-details img {
+.per-details li img {
   width: 305px;
   height: 305px;
   border: 0;
   overflow: hidden;
 }
-.per-details p {
+.per-details li p {
   width: 305px;
   font-size: 16px;
   line-height: 25px;

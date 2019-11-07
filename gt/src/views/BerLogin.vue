@@ -59,24 +59,17 @@ export default {
           .then(data => {
             console.log(data);
             if ((status = 200)) {
-              let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-              let length = 10;
-              let nickname = "";
-              for (let i = 0; i < length; i++) {
-                let nc = Math.floor(Math.random() * 10);
-                nickname += arr[nc];
-              }
-              console.log(nickname);
               Dialog.confirm({
                 title: "登录",
                 message: "登录成功"
-              })
-                .then(() => {
-                  localStorage.setItem("nickname",nickname);
-                  localStorage.setItem("nickname1",'用户'+nickname);
+              }).then(() => {
+                  // on confirm
                   this.$router.push("/index");
                 })
-                .catch(() => {});
+                .catch(() => {
+                  // on cancel
+                })
+              ;
             }
           });
       } else {

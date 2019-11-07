@@ -10,13 +10,13 @@
         <van-tab title="三观人生">
           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
             <van-card
-              v-for="item1 in list"
-              :thumb="item1.coverImg"
-              :price="item1.price"
-              :title="item1.name"
-              :desc="item1.descriptions"
+              v-for="item in list"
+              :thumb="item.coverImg"
+              :price="item.price"
+              :title="item.name"
+              :desc="item.descriptions"
               origin-price="199.00"
-              @click="detail(item1._id)"
+              @click="concept(item._id)"
             />
           </van-pull-refresh>
         </van-tab>
@@ -29,7 +29,7 @@
               :title="item1.name"
               :desc="item1.descriptions"
               origin-price="199.00"
-              @click="detail(item1._id)"
+              @click="etiquette(item1._id)"
             />
           </van-pull-refresh>
         </van-tab>
@@ -54,8 +54,11 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    detail(id) {
-      this.$router.push("/detail/" + id);
+    concept(id) {
+      this.$router.push("/concept/" + id);
+    },
+    etiquette(id) {
+      this.$router.push("/etiquette/" + id);
     },
     onRefresh() {
       setTimeout(() => {

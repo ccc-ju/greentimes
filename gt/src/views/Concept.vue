@@ -1,7 +1,7 @@
 <template>
   <div id="play">
     <header>
-      <van-nav-bar title="骗局路演" left-text="返回" left-arrow @click-left="onClickLeft" />
+      <van-nav-bar title="三观人生" left-text="返回" left-arrow @click-left="onClickLeft" />
     </header>
 
     <section>
@@ -23,7 +23,7 @@
 import * as api from "../api/getProlist.js";
 import axios from "axios";
 export default {
-  name: "fraud",
+  name: "concept",
   data() {
     return {
       active: 0,

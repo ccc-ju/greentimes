@@ -33,14 +33,14 @@ export const POST=(url,params)=>{
     return axios.post(`${baseUrl}${url}`,params).then(data=>data)
 }
 
-export const POSTHEAD=(url,params,token)=>{
-  return axios({
-    method:'post',
-    url:`${baseUrl}${url}`,
-    params:params,
-    headers:{authorization:'Bearer ' +token}
-  })
-}
+// export const POSTHEAD=(url,params,token)=>{
+//   return axios({
+//     method:'post',
+//     url:`${baseUrl}${url}`,
+//     params:params,
+//     headers:{authorization:'Bearer ' +token}
+//   })
+// }
 
 export const GETHEAD=(url,params,token)=>{
 return axios({
@@ -50,3 +50,28 @@ return axios({
   headers:{authorization:'Bearer ' +token}
 })
 }
+
+export const POST_Token=(url,params,token)=>{
+  return axios.post(`${baseUrl}${url}`,params,{
+    headers:{authorization:'Bearer ' +token}
+    })
+}
+
+// export const DELETE=(url,params,token)=>{
+//   return axios.delete(`${baseUrl}${url}`,params,{
+//     headers:{authorization:'Bearer ' +token}
+//     })
+// }
+
+export const DELETE=(url,params,token)=>{
+  return axios({
+    method:'delete',
+    url:`${baseUrl}${url}`,
+    params:params,
+    headers:{authorization:'Bearer ' +token}
+  })
+}
+
+
+
+

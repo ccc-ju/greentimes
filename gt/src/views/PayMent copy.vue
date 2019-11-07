@@ -1,8 +1,8 @@
 <template>
   <div class="wrap">
      <van-nav-bar  left-arrow @click-left="onClickLeft"  class="arr"/>
-   <!-- <img src="../assets/acc.jpg" alt=""> -->
-   <span v-tap="{methods:acc}"></span>
+   <img src="../assets/acc.jpg" alt="">
+   <span v-tap="{methods:acc}">我的账户</span>
   </div>
 </template>
 
@@ -34,12 +34,12 @@ export default {
 
 <style scoped="">
 .wrap {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 .wrap img {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 90%;
 }
 span{
   display: block;
@@ -49,7 +49,7 @@ span{
   text-align: center;
   background:rgba(red, 0, 0, .6);
   position: absolute;
-  bottom: 1vh;
+  bottom: 5vh;
   left: 24vw;
   border-radius: 3vh;
   color: white;

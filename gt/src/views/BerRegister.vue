@@ -27,7 +27,7 @@
           :error-message="pass"
         />
       </van-cell-group>
-      <van-checkbox v-model="checked" class="ck" checked-color="#53fa06">
+      <van-checkbox v-model="checked" class="ck" checked-color="#3ab414">
         阅读并同意
         <a href>《青葱时代服务协议》及《隐私政策》</a>
       </van-checkbox>

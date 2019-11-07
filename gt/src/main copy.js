@@ -39,9 +39,6 @@ Vue.use(Radio);
 Vue.use(SwipeCell);
 Vue.use(Checkbox).use(CheckboxGroup);
 Vue.use(Stepper);
-import share from 'vue-social-share'
-import 'vue-social-share/dist/client.css';
-Vue.use(share)
 Vue.use(PullRefresh);
 Vue.component('Loading',Loading)
 Vue.use(Dialog);

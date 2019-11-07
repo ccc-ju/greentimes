@@ -3,8 +3,7 @@
     <div class="box">
     <van-nav-bar :title="title" :fixed="true" />
      <p>
-        <img src="../assets/t.jpg" alt />
-        <span>用户</span>
+        1
       </p>
     </div>
   </div>
@@ -38,8 +37,13 @@ export default {
   float: left;
   border-radius: 50%;
 }
-.box p {
-  line-height: 10vh;
-  height: 10vh;
+
+p{
+  font-size: 15px;
+  text-align: center;
+  line-height: 60vh;
+  color: #888;
+  background: url(../assets/msg.jpg) no-repeat;
+  background-size: contain;
 }
 </style>

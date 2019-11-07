@@ -54,8 +54,8 @@ li {
   align-items: center;
   list-style: none;
   background: #fff;
-  border-top: solid 1px #bdbaba;
-  border-bottom: solid 1px #bdbaba;
+  border-top: solid 0.5px #bdbaba;
+  border-bottom: solid 0.5px  #bdbaba;
   margin: 15px 0;
   padding: 0 16px;
   height: 40px;

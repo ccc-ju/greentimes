@@ -177,7 +177,7 @@ li {
   background: #fff;
 }
 li:last-child {
-  border-bottom: solid 1px #bdbaba;
+  border-bottom: solid 0.5px #bdbaba;
 }
 
 .iconp1,

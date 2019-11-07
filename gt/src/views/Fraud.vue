@@ -11,9 +11,9 @@
 
     <footer>
       <van-tabbar v-model="active">
-        <van-tabbar-item icon="add">编辑</van-tabbar-item>
-        <van-tabbar-item icon="good-job">点赞</van-tabbar-item>
-        <van-tabbar-item icon="friends">分享</van-tabbar-item>
+        <van-tabbar-item icon="add">标签</van-tabbar-item>
+        <van-tabbar-item icon="good-job">标签</van-tabbar-item>
+        <van-tabbar-item icon="friends">标签</van-tabbar-item>
       </van-tabbar>
     </footer>
   </div>

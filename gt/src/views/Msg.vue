@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" />
-    <span>暂无消息</span>
+    <p>1</p>
   </div>
 </template>
 
@@ -33,6 +33,14 @@ export default {
 
 <style scoped="">
 .box {
-  margin-top: 45px;
+  margin-top: 6vh;
+}
+p{
+  font-size: 15px;
+  text-align: center;
+  line-height: 60vh;
+  color: #888;
+  background: url(../assets/msg.jpg) no-repeat;
+  background-size: contain;
 }
 </style>

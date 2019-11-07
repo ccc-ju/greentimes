@@ -410,6 +410,14 @@ var router = new Router({
       }
     },
     {
+      path: '/pay',
+      name: 'pay',
+      component: () => import('@/views/Pay'),
+      meta: {
+        title: "付款"
+      }
+    },
+    {
       path: '/addressList',
       name: 'addressList',
       component: () => import('@/views/AddressList'),

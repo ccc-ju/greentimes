@@ -83,10 +83,11 @@ export default {
       ) {
         return Toast("手机号码或密码输入有误");
       } else {
+
         api
           .reg({
             userName: this.username,
-            password: this.password
+            password: this.password,
           })
           .then(data => {
             console.log(data.data);
@@ -108,13 +109,15 @@ export default {
                 message: "注册成功"
               })
                 .then(() => {
+                  // on confirm
                   this.$router.push("/berLogin");
                 })
-                .catch(() => {});
+                .catch(() => {
+                  // on cancel
+                });
               localStorage.setItem("username", this.username);
               localStorage.setItem("password", this.password);
               localStorage.setItem("token", data.data.token);
-              localStorage.setItem("phone", this.username);
             }
           });
       }

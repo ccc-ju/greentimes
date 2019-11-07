@@ -3,11 +3,11 @@
     <header v-tap="{methods:bg}">
       <div class="infor" v-tap="{methods:edit}">
         <img src="../assets/t.jpg" />
-        <p>{{nickname}}</p>
+        <p>用户100134188</p>
         <span>
           {{titlename}}
           <br />
-          青葱号：{{num}}
+          青葱号：{{name}}
         </span>
       </div>
     </header>
@@ -69,8 +69,7 @@ export default {
   data() {
     return {
       active: 3,
-      num: localStorage.getItem("nickname"),
-      nickname: localStorage.getItem("nickname1"),
+      name: "100134188",
       titlename: "洪荒岛岛主",
       show: false,
       show1: false,

@@ -3,7 +3,7 @@
     <van-nav-bar title="购物车" left-text="返回" left-arrow :fixed="true" @click-left="onClickLeft" />
 
     <div class="container">
-      <van-coupon-cell :coupons="coupons" :chosen-coupon="chosenCoupon" @click="showList = true" />
+      <van-button type="danger" size="large" icon="plus" v-tap="{methods:address}">添加收货地址</van-button>
       <div v-for="(item,index) in list" class="box">
         <van-checkbox v-model="item.checked" @click="dx(index)" />
         <van-swipe-cell :on-close="onClose">
@@ -20,18 +20,14 @@
           </template>
         </van-swipe-cell>
         <p class="adddel">
-          <em v-on:click="minius(index)">-</em>
-          <input type="number" v-model="item.quantity" />
-          <em v-on:click="add(index)">+</em>
+          <van-stepper v-model="item.quantity" />
         </p>
       </div>
     </div>
     <van-submit-bar :price="totalPrice" button-text="提交订单" @submit="onSubmit">
       <van-checkbox v-model="checked" @click="qx()">全选</van-checkbox>
-
       <span slot="tip" v-tap="{methods:select}">
-        请选择收货地址
-        <span v-tap="{methods:modify}">修改地址</span>
+        <span v-tap="{methods:modify}"></span>
       </span>
     </van-submit-bar>
     <van-popup v-model="showList" position="bottom">
@@ -52,15 +48,6 @@ import { Toast } from "vant";
 import { Dialog } from "vant";
 import axios from "axios";
 const coupon = {
-  available: 1,
-  condition: "无使用门槛\n最多优惠12元",
-  reason: "",
-  value: 150,
-  name: "优惠券名称",
-  startAt: 1489104000,
-  endAt: 1514592000,
-  valueDesc: "1.5",
-  unitDesc: "元"
 };
 
 export default {
@@ -84,7 +71,33 @@ export default {
     onClickIcon() {
       this.$toast("");
     },
-    onSubmit() {},
+    address(){
+      this.$router.push('/addressEdit')
+    },
+    onSubmit() {
+      var arr1 = [];
+       this.list.map((item, index) => {
+        if (item.checked) {
+          arr1.push();
+        }
+      });
+      // api.sub(
+      //     {
+      //       receiver: "",
+      //       regions: "",
+      //       address: "",
+      //       quantity: "item.quantity",
+      //       product: "",
+      //       price: "item.product.price"
+      //     },
+      //     localStorage.getItem("token")
+      //   )
+      //   .then(data => {
+      //     console.log(data.data);
+      //   });
+
+      this.$router.push("/pay");
+    },
     // checked() {},
     onClose() {},
     onChange(index) {
@@ -100,17 +113,9 @@ export default {
     select() {
       this.$router.push("/AddressList");
     },
-    add(index) {
-      this.list[index].quantity++;
-    },
-    minius(index) {
-      if (this.list[index].quantity > 1) {
-        this.list[index].quantity--;
-      }
-    },
+   
     dx(index) {
-      console.log("aa");
-      console.log(this.list[index]);
+      // console.log(this.list[index]);
       this.list[index].checked = !this.list[index].checked;
       var count = 0;
       this.list.map((item, index) => {
@@ -124,6 +129,9 @@ export default {
         this.checked = false;
       }
       console.log(count);
+      if(this.checked == true){
+        this.$router.push('/pay')
+      }
     },
     qx() {
       this.checked = !this.checked;
@@ -176,17 +184,17 @@ export default {
         if (item.checked) {
           sum += item.product.price * item.quantity;
         }
-        
       });
-      return sum*100;
-    }
+      return sum * 100;
+    },
+
   }
-};
+}
 </script>
 
 <style scoped="">
 .container {
-  margin-top: 5vh;
+  margin-top: 7vh;
   margin-bottom: 13vh;
 }
 van-card {
@@ -241,5 +249,12 @@ van-card {
   margin: 0;
   text-align: center;
   padding-top: 1px;
+}
+.van-submit-bar__tip {
+  background: white;
+  height: 2vh;
+}
+.van-submit-bar__bar {
+  background: #ecedee;
 }
 </style>

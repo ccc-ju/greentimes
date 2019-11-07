@@ -33,14 +33,6 @@ export const POST=(url,params)=>{
     return axios.post(`${baseUrl}${url}`,params).then(data=>data)
 }
 
-// export const POSTHEAD=(url,params,token)=>{
-//   return axios({
-//     method:'post',
-//     url:`${baseUrl}${url}`,
-//     params:params,
-//     headers:{authorization:'Bearer ' +token}
-//   })
-// }
 
 export const GETHEAD=(url,params,token)=>{
 return axios({
@@ -71,6 +63,14 @@ export const DELETE=(url,params,token)=>{
     headers:{authorization:'Bearer ' +token}
   })
 }
+
+export const XIUGAI=(url,params,token)=>{
+  return axios.put(`${baseUrl}${url}`,params,{
+    headers:{authorization:'Bearer ' +token}
+    })
+}
+
+
 
 
 

@@ -31,7 +31,17 @@ import { SwipeCell } from 'vant';
 import { RadioGroup, Radio } from 'vant';
 import { AddressEdit } from 'vant';
 import { Area } from 'vant';
+import { Popup } from 'vant';
+import share from 'vue-social-share'
+import 'vue-social-share/dist/client.css';
+import { ContactCard, ContactList, ContactEdit } from 'vant';
 
+
+Vue
+  .use(ContactCard)
+  .use(ContactList)
+  .use(ContactEdit);
+Vue.use(Popup);
 Vue.use(Area);
 Vue.use(AddressEdit);
 Vue.use(RadioGroup);
@@ -39,8 +49,6 @@ Vue.use(Radio);
 Vue.use(SwipeCell);
 Vue.use(Checkbox).use(CheckboxGroup);
 Vue.use(Stepper);
-import share from 'vue-social-share'
-import 'vue-social-share/dist/client.css';
 Vue.use(share)
 Vue.use(PullRefresh);
 Vue.component('Loading',Loading)

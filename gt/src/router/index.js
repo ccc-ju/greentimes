@@ -461,6 +461,24 @@ var router = new Router({
       }
     },
     {
+      path: '/concept/:_id',
+      name: 'concept',
+      component: () => import('@/views/Concept'),
+      meta: {
+        title: "三观人生"
+
+      }
+    },
+    {
+      path: '/etiquette/:_id',
+      name: 'etiquette',
+      component: () => import('@/views/Etiquette'),
+      meta: {
+        title: "社交礼仪"
+
+      }
+    },
+    {
       path: '/little',
       name: 'little',
       component: () => import('@/views/Little'),
